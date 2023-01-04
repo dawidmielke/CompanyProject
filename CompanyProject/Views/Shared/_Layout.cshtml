@@ -12,21 +12,24 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3">
             <div class="container-fluid px-4">
-                <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">CompanyProject</a>
+                <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">EMS</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Home
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                            <li><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
+                        </ul>
+                    </div>
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="AddEmployee">Adding Employee</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="AddEmployee">Add Employee</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
