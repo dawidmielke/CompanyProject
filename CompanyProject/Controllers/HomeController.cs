@@ -1,5 +1,6 @@
 ﻿using CompanyProject.Data.Models;
 using CompanyProject.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -27,25 +28,31 @@ namespace CompanyProject.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Administrator")]
         public IActionResult AddEmployee()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize(Roles = "Administrator")]
         public IActionResult AddEmployee(EmployeeViewModel model)
         {
-            Employee user = new Employee
+            if (ModelState.IsValid)
             {
-                Email = model.Email,
-                UserName = model.Email,
-                Surname = model.Surname,
-                Name = model.Name,
-                Birth = model.Birth,
-                PictureUrl = model.PictureUrl
-            };
-
-            userManager.CreateAsync(user, model.Password).Wait();
+                Employee user = new Employee
+                {
+                    Email = model.Email,
+                    UserName = model.Email,
+                    Surname = model.Surname,
+                    Name = model.Name,
+                    Birth = model.Birth,
+                    PictureUrl = model.PictureUrl
+                };
+                userManager.CreateAsync(user, model.Password).Wait();
+                userManager.AddToRoleAsync(user, model.Role).Wait();
+            }
+            
             return View(model);
         }
 

@@ -1,8 +1,10 @@
-﻿namespace CompanyProject.Models
+﻿using Microsoft.Build.Framework;
+
+namespace CompanyProject.Models
 {
-    public class TasksViewModel
+    public class TaskViewModel
     {
-        public int TaskId { get; set; }
+        [Required]
         public string TaskName { get; set; }
         public string TaskDescription { get; set; }
         public DateTime TaskStart { get; set; }

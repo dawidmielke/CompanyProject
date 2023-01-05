@@ -56,6 +56,16 @@
                                             <span asp-validation-for="PictureUrl" class="text-danger"></span>
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group p-2">
+                                            <label asp-for="PictureUrl"></label>
+                                            <select class="form-control" asp-for="PictureUrl">
+                                                <option value="Administrator">Administrator</option>
+                                                <option value="User">User</option>
+                                            </select>
+                                            <span asp-validation-for="PictureUrl" class="text-danger"></span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
