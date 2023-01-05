@@ -16,7 +16,7 @@ namespace CompanyProject.Models
 
         [Required]
         [EmailAddress]
-        public string Email { get; set; }
+        public string? Email { get; set; }
 
         [Required]
         public DateTime Birth { get; set; }
@@ -26,6 +26,6 @@ namespace CompanyProject.Models
         [MaxLength(30)]
         public string Password { get; set; }
 
-        public string PictureUrl { get; set; }
+        public string? PictureUrl { get; set; }
     }
 }
