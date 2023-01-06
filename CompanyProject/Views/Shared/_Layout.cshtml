@@ -18,7 +18,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <div class="dropdown">
+                    <div class="dropdown me-2">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Home
                         </button>
@@ -27,14 +27,27 @@
                             <li><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
                         </ul>
                     </div>
+                    <div class="dropdown me-2">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Employees
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AddEmployee">Add Employee</a></li>
+                            <li><a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">Employee list</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown me-2">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Task
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="nav-link text-dark" asp-area="" asp-controller="Task" asp-action="AddTask">Add Task</a></li>
+                            <li><a class="nav-link text-dark" asp-area="" asp-controller="Task" asp-action="Index">Tasks list</a></li>
+                        </ul>
+                    </div>
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="AddEmployee">Add Employee</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Task" asp-action="AddTask">Add Task</a>
+                            
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />

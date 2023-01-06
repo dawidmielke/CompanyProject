@@ -6,8 +6,14 @@ namespace CompanyProject.Models
     {
         [Required]
         public string TaskName { get; set; }
+
+        [Required]
         public string TaskDescription { get; set; }
+
+        [Required]
         public DateTime TaskStart { get; set; }
+
+        [Required]
         public DateTime TaskEnd { get; set; }
 
     }
