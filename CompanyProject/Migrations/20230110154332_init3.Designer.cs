@@ -4,16 +4,18 @@ using CompanyProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace CompanyProject.Data.Migrations
+namespace CompanyProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230110154332_init3")]
+    partial class init3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,7 +32,7 @@ namespace CompanyProject.Data.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Birth")
+                    b.Property<DateTime?>("Birth")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -51,7 +53,6 @@ namespace CompanyProject.Data.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
@@ -72,14 +73,12 @@ namespace CompanyProject.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("PictureUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Surname")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("TwoFactorEnabled")
@@ -114,7 +113,7 @@ namespace CompanyProject.Data.Migrations
                             Name = "Admin",
                             NormalizedEmail = "ADMIN@COMPANY.PL",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "APftp317PjpaYShJN+X2DjUtP19P8zYMmEwOyG4S9+3kNB0DXnDczv2heZrIdlAsBg==",
+                            PasswordHash = "ALmc4uw816/MAVnsdl7TYqkYYolPBizazpZSkYJwkNKexxNWuqsf8ygvXMjseBM6pw==",
                             PhoneNumberConfirmed = false,
                             PictureUrl = "empty",
                             SecurityStamp = "2d493259-1296-424c-976f-bcd33e28d8f5",

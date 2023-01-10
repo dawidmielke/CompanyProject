@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace CompanyProject.Data.Migrations
+namespace CompanyProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230105190349_seed admin")]
-    partial class seedadmin
+    [Migration("20230110153013_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -116,7 +116,7 @@ namespace CompanyProject.Data.Migrations
                             Name = "Admin",
                             NormalizedEmail = "ADMIN@COMPANY.PL",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AGEhYqAmmTu5t3P+QyW8jI32JG17zbn4aoNTJHrZVAy1mc3OGm0jKGfJULyNq5rq6A==",
+                            PasswordHash = "AAEYMhfB3fpOR/oU67Mde9PfLvoXrBkPewzXRUI3AwqBmTZeP2SebwdeY7yTPFArvQ==",
                             PhoneNumberConfirmed = false,
                             PictureUrl = "empty",
                             SecurityStamp = "2d493259-1296-424c-976f-bcd33e28d8f5",

@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace CompanyProject.Data.Migrations
+namespace CompanyProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230105183557_employeetask table")]
-    partial class employeetasktable
+    [Migration("20230110154630_init4")]
+    partial class init4
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,7 +32,7 @@ namespace CompanyProject.Data.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Birth")
+                    b.Property<DateTime?>("Birth")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -53,7 +53,6 @@ namespace CompanyProject.Data.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
@@ -74,14 +73,12 @@ namespace CompanyProject.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("PictureUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Surname")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("TwoFactorEnabled")
@@ -102,6 +99,28 @@ namespace CompanyProject.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "4808c606-89cf-4a92-8ff6-33074a34a335",
+                            AccessFailedCount = 0,
+                            Birth = new DateTime(2023, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ConcurrencyStamp = "6a045f02-029a-484a-a2fb-22e0fd9f55af",
+                            Email = "admin@company.pl",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            Name = "Admin",
+                            NormalizedEmail = "ADMIN@COMPANY.PL",
+                            NormalizedUserName = "ADMIN",
+                            PasswordHash = "ACUmMcuaWCPnyg4a+Q65Sfpvk5jD9fWAohl0JWihaezZ1gK9GdjW/AdIAPNDo74Abg==",
+                            PhoneNumberConfirmed = false,
+                            PictureUrl = "empty",
+                            SecurityStamp = "2d493259-1296-424c-976f-bcd33e28d8f5",
+                            Surname = "Admin",
+                            TwoFactorEnabled = false,
+                            UserName = "Admin"
+                        });
                 });
 
             modelBuilder.Entity("CompanyProject.Data.Models.EmployeeTask", b =>
@@ -162,6 +181,22 @@ namespace CompanyProject.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "40c6bc97-f08f-41e4-bf60-ccd30ff4ab41",
+                            ConcurrencyStamp = "b1c45479-e24c-44f1-9890-074c0145ae77",
+                            Name = "Administrator",
+                            NormalizedName = "ADMINISTRATOR"
+                        },
+                        new
+                        {
+                            Id = "33244a2a-62a8-4f91-83ac-6435a1348629",
+                            ConcurrencyStamp = "3dfdde93-320f-4255-afc5-2d4847da1e75",
+                            Name = "User",
+                            NormalizedName = "USER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -251,6 +286,13 @@ namespace CompanyProject.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "4808c606-89cf-4a92-8ff6-33074a34a335",
+                            RoleId = "40c6bc97-f08f-41e4-bf60-ccd30ff4ab41"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>

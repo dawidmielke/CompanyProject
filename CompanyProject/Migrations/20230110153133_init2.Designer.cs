@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace CompanyProject.Data.Migrations
+namespace CompanyProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230105190907_seed admin 2")]
-    partial class seedadmin2
+    [Migration("20230110153133_init2")]
+    partial class init2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,7 +32,7 @@ namespace CompanyProject.Data.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Birth")
+                    b.Property<DateTime?>("Birth")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -53,7 +53,6 @@ namespace CompanyProject.Data.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
@@ -74,14 +73,12 @@ namespace CompanyProject.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("PictureUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Surname")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("TwoFactorEnabled")
@@ -116,7 +113,7 @@ namespace CompanyProject.Data.Migrations
                             Name = "Admin",
                             NormalizedEmail = "ADMIN@COMPANY.PL",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AOk65MMp2EogDLHKc6/TTXqYUbJTyl5IhdQZmSaJmIL28/QcAm0pOLSQECLZfcukCQ==",
+                            PasswordHash = "AC2zL98CUeACiGa5qkiBcLufaXLbb4IgoYRBwR0eYlcVww7OJHCK70SoaqSMA/rudw==",
                             PhoneNumberConfirmed = false,
                             PictureUrl = "empty",
                             SecurityStamp = "2d493259-1296-424c-976f-bcd33e28d8f5",

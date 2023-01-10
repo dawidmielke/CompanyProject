@@ -2,9 +2,9 @@
 
 #nullable disable
 
-namespace CompanyProject.Data.Migrations
+namespace CompanyProject.Migrations
 {
-    public partial class seedadmin2 : Migration
+    public partial class init3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,7 @@ namespace CompanyProject.Data.Migrations
                 keyColumn: "Id",
                 keyValue: "4808c606-89cf-4a92-8ff6-33074a34a335",
                 column: "PasswordHash",
-                value: "AOk65MMp2EogDLHKc6/TTXqYUbJTyl5IhdQZmSaJmIL28/QcAm0pOLSQECLZfcukCQ==");
+                value: "ALmc4uw816/MAVnsdl7TYqkYYolPBizazpZSkYJwkNKexxNWuqsf8ygvXMjseBM6pw==");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -23,7 +23,7 @@ namespace CompanyProject.Data.Migrations
                 keyColumn: "Id",
                 keyValue: "4808c606-89cf-4a92-8ff6-33074a34a335",
                 column: "PasswordHash",
-                value: "AGEhYqAmmTu5t3P+QyW8jI32JG17zbn4aoNTJHrZVAy1mc3OGm0jKGfJULyNq5rq6A==");
+                value: "AC2zL98CUeACiGa5qkiBcLufaXLbb4IgoYRBwR0eYlcVww7OJHCK70SoaqSMA/rudw==");
         }
     }
 }

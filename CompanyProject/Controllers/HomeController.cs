@@ -1,4 +1,5 @@
-﻿using CompanyProject.Data.Models;
+﻿using CompanyProject.Data;
+using CompanyProject.Data.Models;
 using CompanyProject.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -11,11 +12,13 @@ namespace CompanyProject.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<Employee> userManager;
+        private readonly ApplicationDbContext context;
 
-        public HomeController(ILogger<HomeController> logger, UserManager<Employee> userManager)
+        public HomeController(ILogger<HomeController> logger, UserManager<Employee> userManager, ApplicationDbContext context)
         {
             _logger = logger;
             this.userManager = userManager;
+            this.context = context;
         }
 
         public IActionResult Index()
@@ -26,6 +29,26 @@ namespace CompanyProject.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        [Authorize(Roles = "Administrator")]
+        public IActionResult Employees()
+        {
+            return View(context.Users.ToList());
+        }
+
+
+        [Authorize(Roles = "Administrator")]
+        public IActionResult DeleteUser(string id)
+        {
+            var employee = context.Users.Find(id);
+            if(employee == null)
+            {
+                return NotFound();
+            }
+            userManager.DeleteAsync(employee).Wait();
+
+            return RedirectToAction("Employees");
         }
 
         [Authorize(Roles = "Administrator")]
