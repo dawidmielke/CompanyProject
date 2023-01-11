@@ -29,6 +29,6 @@ namespace CompanyProject.Models
         [Required]
         public string Role { get; set; }
 
-        public string? PictureUrl { get; set; }
+        public IFormFile Image { get; set; }
     }
 }

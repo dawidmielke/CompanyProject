@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "CompanyProject/1.0.0": {
         "dependencies": {
+          "CloudinaryDotNet": "1.20.0",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "6.0.8",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.12",
           "Microsoft.AspNetCore.Identity.UI": "6.0.12",
@@ -17,6 +18,19 @@
         },
         "runtime": {
           "CompanyProject.dll": {}
+        }
+      },
+      "CloudinaryDotNet/1.20.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Html.Abstractions": "2.2.0",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/CloudinaryDotNet.dll": {
+            "assemblyVersion": "1.20.0.0",
+            "fileVersion": "1.20.0.0"
+          }
         }
       },
       "Humanizer.Core/2.8.26": {
@@ -81,6 +95,22 @@
             "assemblyVersion": "6.0.8.0",
             "fileVersion": "6.0.822.36316"
           }
+        }
+      },
+      "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
+        "dependencies": {
+          "System.Text.Encodings.Web": "6.0.0"
+        }
+      },
+      "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "2.2.0",
+          "System.Text.Encodings.Web": "6.0.0"
+        }
+      },
+      "Microsoft.AspNetCore.Http.Features/2.2.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "6.0.0"
         }
       },
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore/6.0.12": {
@@ -2356,6 +2386,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "CloudinaryDotNet/1.20.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pvWXU5PJ4yhqMzwEawi20ogkbtlX0FUP/7UOn5K/fFNSgZheTn6F9/fHpkssBfnEoQeIxauqo0cVpkyYFSzIvA==",
+      "path": "cloudinarydotnet/1.20.0",
+      "hashPath": "cloudinarydotnet.1.20.0.nupkg.sha512"
+    },
     "Humanizer.Core/2.8.26": {
       "type": "package",
       "serviceable": true,
@@ -2404,6 +2441,27 @@
       "sha512": "sha512-uiwjIcA3EFQF20zLQCkI+sg6Na3b28QODr/aqILT5HnaqKYY/1NuxUKi24c3rIYbnok6iJzC7rs0Y9binZArww==",
       "path": "microsoft.aspnetcore.diagnostics.entityframeworkcore/6.0.8",
       "hashPath": "microsoft.aspnetcore.diagnostics.entityframeworkcore.6.0.8.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Y4rs5aMEXY8G7wJo5S3EEt6ltqyOTr/qOeZzfn+hw/fuQj5GppGckMY5psGLETo1U9hcT5MmAhaT5xtusM1b5g==",
+      "path": "microsoft.aspnetcore.html.abstractions/2.2.0",
+      "hashPath": "microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Nxs7Z1q3f1STfLYKJSVXCs1iBl+Ya6E8o4Oy1bCxJ/rNI44E/0f6tbsrVqAWfB7jlnJfyaAtIalBVxPKUPQb4Q==",
+      "path": "microsoft.aspnetcore.http.abstractions/2.2.0",
+      "hashPath": "microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Http.Features/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ziFz5zH8f33En4dX81LW84I6XrYXKf9jg6aM39cM+LffN9KJahViKZ61dGMSO2gd3e+qe5yBRwsesvyqlZaSMg==",
+      "path": "microsoft.aspnetcore.http.features/2.2.0",
+      "hashPath": "microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore/6.0.12": {
       "type": "package",

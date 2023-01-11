@@ -1,5 +1,6 @@
 ﻿using CompanyProject.Data;
 using CompanyProject.Data.Models;
+using CompanyProject.Interfaces;
 using CompanyProject.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -13,12 +14,14 @@ namespace CompanyProject.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<Employee> userManager;
         private readonly ApplicationDbContext context;
+        private readonly IPhotoService _photoService;
 
-        public HomeController(ILogger<HomeController> logger, UserManager<Employee> userManager, ApplicationDbContext context)
+        public HomeController(ILogger<HomeController> logger, UserManager<Employee> userManager, ApplicationDbContext context, IPhotoService photoService)
         {
             _logger = logger;
             this.userManager = userManager;
             this.context = context;
+            _photoService = photoService;
         }
 
         public IActionResult Index()
@@ -59,7 +62,7 @@ namespace CompanyProject.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Administrator")]
-        public IActionResult AddEmployee(EmployeeViewModel model)
+        public async IActionResult AddEmployee(EmployeeViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -70,12 +73,12 @@ namespace CompanyProject.Controllers
                     Surname = model.Surname,
                     Name = model.Name,
                     Birth = model.Birth,
-                    PictureUrl = model.PictureUrl
+                    Image = model.Image
                 };
                 userManager.CreateAsync(user, model.Password).Wait();
                 userManager.AddToRoleAsync(user, model.Role).Wait();
             }
-            
+
             return View(model);
         }
 

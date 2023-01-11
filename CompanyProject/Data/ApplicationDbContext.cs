@@ -49,7 +49,7 @@ namespace CompanyProject.Data
                     Surname = "Admin",
                     NormalizedEmail =  "ADMIN@COMPANY.PL",
                     NormalizedUserName = "ADMIN",
-                    PictureUrl = "empty",
+                    Image = "empty",
                     EmailConfirmed = true,
                     Id = "4808c606-89cf-4a92-8ff6-33074a34a335",
                     PasswordHash = HashPassword("Admin1234!")
