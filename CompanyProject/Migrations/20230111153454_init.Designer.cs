@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CompanyProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230110153133_init2")]
-    partial class init2
+    [Migration("20230111153454_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -46,6 +46,9 @@ namespace CompanyProject.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
@@ -71,9 +74,6 @@ namespace CompanyProject.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
-
-                    b.Property<string>("PictureUrl")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
@@ -113,10 +113,9 @@ namespace CompanyProject.Migrations
                             Name = "Admin",
                             NormalizedEmail = "ADMIN@COMPANY.PL",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AC2zL98CUeACiGa5qkiBcLufaXLbb4IgoYRBwR0eYlcVww7OJHCK70SoaqSMA/rudw==",
+                            PasswordHash = "AFjmgkc7iqdj5LavjLSDTelxWQXrZF9oOkNq0JycsfJsBRc2HKZXcpHYJ71+eNSwYA==",
                             PhoneNumberConfirmed = false,
-                            PictureUrl = "empty",
-                            SecurityStamp = "2d493259-1296-424c-976f-bcd33e28d8f5",
+                            SecurityStamp = "59e04a1f-19d4-48b3-aeef-726ed22326ed",
                             Surname = "Admin",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
@@ -186,14 +185,14 @@ namespace CompanyProject.Migrations
                         new
                         {
                             Id = "40c6bc97-f08f-41e4-bf60-ccd30ff4ab41",
-                            ConcurrencyStamp = "93471d69-4b83-43e9-bce0-f5c4f1c1e649",
+                            ConcurrencyStamp = "538037a0-ddcc-4aec-8fda-6e117e8fc652",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "33244a2a-62a8-4f91-83ac-6435a1348629",
-                            ConcurrencyStamp = "1d51ee3b-d24f-4aae-b883-aa84051a1f06",
+                            ConcurrencyStamp = "2e48f6ab-c510-4988-adf5-14f4d2cebb6c",
                             Name = "User",
                             NormalizedName = "USER"
                         });

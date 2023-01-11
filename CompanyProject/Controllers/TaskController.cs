@@ -1,5 +1,6 @@
 ﻿using CompanyProject.Data;
 using CompanyProject.Data.Models;
+using CompanyProject.Data.Repositories;
 using CompanyProject.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -11,17 +12,21 @@ namespace CompanyProject.Controllers
     [Authorize]
     public class TaskController : Controller
     {
-        private readonly ApplicationDbContext context;
+        private readonly ITaskRepository taskRepository;
 
-        public TaskController(ApplicationDbContext context)
+        public TaskController(ITaskRepository taskRepository)
         {
-            this.context = context;
+            this.taskRepository = taskRepository;
+        }
+
+        private string GetUserId()
+        {
+            return User.FindFirstValue(ClaimTypes.NameIdentifier);
         }
 
         public IActionResult Index()
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            return View(context.EmployeeTasks.Where(task => task.EmployeeId == userId).ToList());
+            return View(taskRepository.GetTasksByEmployeeId(GetUserId()));
         }
 
         public IActionResult AddTask()
@@ -32,23 +37,21 @@ namespace CompanyProject.Controllers
         [HttpPost]
         public IActionResult AddTask(TaskViewModel model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                EmployeeTask user = new EmployeeTask
+                EmployeeTask task = new EmployeeTask
                 {
                     TaskDescription = model.TaskDescription,
                     TaskEnd = model.TaskEnd,
                     TaskStart = model.TaskStart,
                     TaskName = model.TaskName,
-                    EmployeeId = userId
+                    EmployeeId = GetUserId()
                 };
 
-                context.EmployeeTasks.Add(user);
-                context.SaveChanges();
+                taskRepository.Create(task);
                 return RedirectToAction("Index");
             }
-            
+
             return View(model);
         }
     }

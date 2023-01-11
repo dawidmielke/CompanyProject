@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using CompanyProject.Data.Models
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<Employee> SignInManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -27,27 +31,30 @@
                             <li><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
                         </ul>
                     </div>
-                    <div class="dropdown me-2">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Employees
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AddEmployee">Add Employee</a></li>
-                            <li><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Employees">Employee list</a></li>
-                        </ul>
-                    </div>
-                    <div class="dropdown me-2">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Task
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="nav-link text-dark" asp-area="" asp-controller="Task" asp-action="AddTask">Add Task</a></li>
-                            <li><a class="nav-link text-dark" asp-area="" asp-controller="Task" asp-action="Index">Tasks list</a></li>
-                        </ul>
-                    </div>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <div class="dropdown me-2">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Employees
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AddEmployee">Add Employee</a></li>
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Employees">Employee list</a></li>
+                            </ul>
+                        </div>
+                        <div class="dropdown me-2">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Task
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="Task" asp-action="AddTask">Add Task</a></li>
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="Task" asp-action="Index">Tasks list</a></li>
+                            </ul>
+                        </div>
+                    }
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            
+
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />

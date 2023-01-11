@@ -14,14 +14,12 @@ namespace CompanyProject.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<Employee> userManager;
         private readonly ApplicationDbContext context;
-        private readonly IPhotoService _photoService;
 
-        public HomeController(ILogger<HomeController> logger, UserManager<Employee> userManager, ApplicationDbContext context, IPhotoService photoService)
+        public HomeController(ILogger<HomeController> logger, UserManager<Employee> userManager, ApplicationDbContext context)
         {
             _logger = logger;
             this.userManager = userManager;
             this.context = context;
-            _photoService = photoService;
         }
 
         public IActionResult Index()
@@ -60,12 +58,35 @@ namespace CompanyProject.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Administrator")]
+        public IActionResult Details(string id)
+        {
+            var employee = context.Users.Find(id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            return View(employee);
+        }
+
         [HttpPost]
         [Authorize(Roles = "Administrator")]
-        public async IActionResult AddEmployee(EmployeeViewModel model)
+        public IActionResult AddEmployee(EmployeeViewModel model)
         {
             if (ModelState.IsValid)
             {
+
+                string base64img = null;
+                if (model.Image != null && model.Image.Length > 0)
+                {
+                    using (var ms = new MemoryStream())
+                    {
+                        model.Image.CopyTo(ms);
+                        var fileBytes = ms.ToArray();
+                        base64img = Convert.ToBase64String(fileBytes);
+                    }
+                }
+
                 Employee user = new Employee
                 {
                     Email = model.Email,
@@ -73,7 +94,7 @@ namespace CompanyProject.Controllers
                     Surname = model.Surname,
                     Name = model.Name,
                     Birth = model.Birth,
-                    Image = model.Image
+                    Image = base64img
                 };
                 userManager.CreateAsync(user, model.Password).Wait();
                 userManager.AddToRoleAsync(user, model.Role).Wait();

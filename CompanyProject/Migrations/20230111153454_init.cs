@@ -28,10 +28,10 @@ namespace CompanyProject.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Birth = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PictureUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Surname = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Birth = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Surname = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -184,17 +184,17 @@ namespace CompanyProject.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "33244a2a-62a8-4f91-83ac-6435a1348629", "1d51ee3b-d24f-4aae-b883-aa84051a1f06", "User", "USER" });
+                values: new object[] { "33244a2a-62a8-4f91-83ac-6435a1348629", "2e48f6ab-c510-4988-adf5-14f4d2cebb6c", "User", "USER" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "40c6bc97-f08f-41e4-bf60-ccd30ff4ab41", "93471d69-4b83-43e9-bce0-f5c4f1c1e649", "Administrator", "ADMINISTRATOR" });
+                values: new object[] { "40c6bc97-f08f-41e4-bf60-ccd30ff4ab41", "538037a0-ddcc-4aec-8fda-6e117e8fc652", "Administrator", "ADMINISTRATOR" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "Birth", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "Name", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "PictureUrl", "SecurityStamp", "Surname", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "4808c606-89cf-4a92-8ff6-33074a34a335", 0, new DateTime(2023, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), "6a045f02-029a-484a-a2fb-22e0fd9f55af", "admin@company.pl", true, false, null, "Admin", "ADMIN@COMPANY.PL", "ADMIN", "AAEYMhfB3fpOR/oU67Mde9PfLvoXrBkPewzXRUI3AwqBmTZeP2SebwdeY7yTPFArvQ==", null, false, "empty", "2d493259-1296-424c-976f-bcd33e28d8f5", "Admin", false, "Admin" });
+                columns: new[] { "Id", "AccessFailedCount", "Birth", "ConcurrencyStamp", "Email", "EmailConfirmed", "Image", "LockoutEnabled", "LockoutEnd", "Name", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Surname", "TwoFactorEnabled", "UserName" },
+                values: new object[] { "4808c606-89cf-4a92-8ff6-33074a34a335", 0, new DateTime(2023, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), "6a045f02-029a-484a-a2fb-22e0fd9f55af", "admin@company.pl", true, null, false, null, "Admin", "ADMIN@COMPANY.PL", "ADMIN", "AFjmgkc7iqdj5LavjLSDTelxWQXrZF9oOkNq0JycsfJsBRc2HKZXcpHYJ71+eNSwYA==", null, false, "59e04a1f-19d4-48b3-aeef-726ed22326ed", "Admin", false, "Admin" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",

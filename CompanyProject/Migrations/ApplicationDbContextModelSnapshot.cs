@@ -107,17 +107,17 @@ namespace CompanyProject.Migrations
                             ConcurrencyStamp = "6a045f02-029a-484a-a2fb-22e0fd9f55af",
                             Email = "admin@company.pl",
                             EmailConfirmed = true,
-                            Image = "empty",
+                            Image = "iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAARElEQVR42u3PMREAAAgEIE1u9DeDqwcN6KSmHmgRERERERERERERERERERERERERERERERERERERERERERERERERkYsFnhx8ndlgmS8AAAAASUVORK5CYII=",
                             LockoutEnabled = false,
                             Name = "Admin",
                             NormalizedEmail = "ADMIN@COMPANY.PL",
-                            NormalizedUserName = "ADMIN",
-                            PasswordHash = "ALrp4kBfnjDsqiu/MFJ/uUglw13qTyt1lbAQXwJVGaUyNoxGC0/045pnNxBd52FDyw==",
+                            NormalizedUserName = "ADMIN@COMPANY.PL",
+                            PasswordHash = "AIvHXaVKIaHKCXecaPbq7TsYugI+/BGF8agdncBxSs1XEh6miczveyT+HJ8KbbPK8w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2d493259-1296-424c-976f-bcd33e28d8f5",
+                            SecurityStamp = "7ca010c8-a81c-4a66-a1ce-e7ff111a7b1a",
                             Surname = "Admin",
                             TwoFactorEnabled = false,
-                            UserName = "Admin"
+                            UserName = "admin@company.pl"
                         });
                 });
 
@@ -184,14 +184,14 @@ namespace CompanyProject.Migrations
                         new
                         {
                             Id = "40c6bc97-f08f-41e4-bf60-ccd30ff4ab41",
-                            ConcurrencyStamp = "12e2b70f-3f02-47e9-8253-4ffecc3a8f52",
+                            ConcurrencyStamp = "94309c79-3520-47b2-bccc-78ccd55e8d04",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "33244a2a-62a8-4f91-83ac-6435a1348629",
-                            ConcurrencyStamp = "15a937d8-d43c-47a3-a5e0-695cfdca8c28",
+                            ConcurrencyStamp = "ae7aa5bc-4119-4205-92cc-5f9434960fc0",
                             Name = "User",
                             NormalizedName = "USER"
                         });

@@ -42,17 +42,16 @@ namespace CompanyProject.Data
                 new Employee{ 
                     Birth = new DateTime(2023, 1, 5),
                     Email = "admin@company.pl",
-                    UserName = "Admin",
+                    UserName = "admin@company.pl",
                     ConcurrencyStamp = "6a045f02-029a-484a-a2fb-22e0fd9f55af",
-                    SecurityStamp = "2d493259-1296-424c-976f-bcd33e28d8f5",
                     Name = "Admin",
                     Surname = "Admin",
                     NormalizedEmail =  "ADMIN@COMPANY.PL",
-                    NormalizedUserName = "ADMIN",
-                    Image = "empty",
+                    NormalizedUserName = "ADMIN@COMPANY.PL",
+                    Image = "iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAARElEQVR42u3PMREAAAgEIE1u9DeDqwcN6KSmHmgRERERERERERERERERERERERERERERERERERERERERERERERERkYsFnhx8ndlgmS8AAAAASUVORK5CYII=",
                     EmailConfirmed = true,
                     Id = "4808c606-89cf-4a92-8ff6-33074a34a335",
-                    PasswordHash = HashPassword("Admin1234!")
+                    PasswordHash = HashPassword("Admin1234")
                 }
             });
 

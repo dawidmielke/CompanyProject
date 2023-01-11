@@ -1,6 +1,9 @@
 using CompanyProject.Data;
 using CompanyProject.Data.Models;
+using CompanyProject.Data.Repositories;
 using CompanyProject.Helpers;
+using CompanyProject.Interfaces;
+using CompanyProject.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,7 +20,7 @@ builder.Services.AddDefaultIdentity<Employee>(options => options.SignIn.RequireC
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddControllersWithViews();
-builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
+builder.Services.AddScoped<ITaskRepository, TaskRepository>();
 
 var app = builder.Build();
 

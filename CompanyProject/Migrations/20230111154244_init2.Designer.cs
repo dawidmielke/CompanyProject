@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CompanyProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230110153013_init")]
-    partial class init
+    [Migration("20230111154244_init2")]
+    partial class init2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,7 +32,7 @@ namespace CompanyProject.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Birth")
+                    b.Property<DateTime?>("Birth")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -46,6 +46,9 @@ namespace CompanyProject.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
@@ -53,7 +56,6 @@ namespace CompanyProject.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
@@ -73,15 +75,10 @@ namespace CompanyProject.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("PictureUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Surname")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("TwoFactorEnabled")
@@ -115,14 +112,13 @@ namespace CompanyProject.Migrations
                             LockoutEnabled = false,
                             Name = "Admin",
                             NormalizedEmail = "ADMIN@COMPANY.PL",
-                            NormalizedUserName = "ADMIN",
-                            PasswordHash = "AAEYMhfB3fpOR/oU67Mde9PfLvoXrBkPewzXRUI3AwqBmTZeP2SebwdeY7yTPFArvQ==",
+                            NormalizedUserName = "ADMIN@COMPANY.PL",
+                            PasswordHash = "AEZPdrs2RwjR53FvrSDL9X2zFMtygK04Czora9+79hYauChjOeUhOo/MhI7nzNuXWQ==",
                             PhoneNumberConfirmed = false,
-                            PictureUrl = "empty",
-                            SecurityStamp = "2d493259-1296-424c-976f-bcd33e28d8f5",
+                            SecurityStamp = "3388d2ba-630e-4718-b9bf-cc1dee997e1a",
                             Surname = "Admin",
                             TwoFactorEnabled = false,
-                            UserName = "Admin"
+                            UserName = "admin@company.pl"
                         });
                 });
 
@@ -189,14 +185,14 @@ namespace CompanyProject.Migrations
                         new
                         {
                             Id = "40c6bc97-f08f-41e4-bf60-ccd30ff4ab41",
-                            ConcurrencyStamp = "93471d69-4b83-43e9-bce0-f5c4f1c1e649",
+                            ConcurrencyStamp = "6f14e664-908d-4f65-a111-f14af1463bcd",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "33244a2a-62a8-4f91-83ac-6435a1348629",
-                            ConcurrencyStamp = "1d51ee3b-d24f-4aae-b883-aa84051a1f06",
+                            ConcurrencyStamp = "d8bb5b3a-3260-4a3d-8c46-d98f0ca2db5c",
                             Name = "User",
                             NormalizedName = "USER"
                         });
