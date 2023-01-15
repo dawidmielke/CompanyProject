@@ -14,10 +14,10 @@ html {
   }
 }
 
-html {
+/*html {
   position: relative;
   min-height: 100%;
-}
+}*/
 
 body {
   margin-bottom: 60px;
@@ -27,3 +27,21 @@ body {
     background-color: red;
 }
 
+.hero-shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: -1;
+}
+
+.home {
+    position: relative;
+    height: 40rem;
+    background-image: url(../img/teamwork.jpg);
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
