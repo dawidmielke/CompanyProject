@@ -84,5 +84,10 @@ namespace CompanyProject.Data
 
 
     public DbSet<EmployeeTask> EmployeeTasks { get; set; }
+    
+
+
+
+    public DbSet<CompanyProject.Data.Models.EmployeeLeave> EmployeeLeave { get; set; }
     }
 }

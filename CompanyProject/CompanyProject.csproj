@@ -21,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Leaves\" />
     <Folder Include="wwwroot\img\" />
   </ItemGroup>
 

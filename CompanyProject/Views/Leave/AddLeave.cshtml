@@ -1,0 +1,50 @@
+﻿@model LeaveViewModel
+
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div class="card">
+                <div class="card-header text-start">
+                    <h1><b>Add Leave</b></h1>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group p-2">
+                                            <label asp-for="LeaveDescription"></label>
+                                            <input class="form-control" asp-for="LeaveDescription" />
+                                            <span asp-validation-for="LeaveDescription" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group p-2">
+                                            <label asp-for="LeaveStart"></label>
+                                            <input class="form-control" asp-for="LeaveStart" />
+                                            <span asp-validation-for="LeaveStart" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group p-2">
+                                            <label asp-for="LeaveEnd"></label>
+                                            <input class="form-control" asp-for="LeaveEnd" />
+                                            <span asp-validation-for="LeaveEnd" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-2">
+                            <button class="btn btn-dark">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

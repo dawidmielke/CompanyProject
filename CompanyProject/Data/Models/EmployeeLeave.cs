@@ -1,17 +1,19 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CompanyProject.Models
+namespace CompanyProject.Data.Models
 {
-    public class LeaveViewModel
+    public class EmployeeLeave
     {
+        [Key]
+        public int EmployeeId { get; set; }
 
         [Required]
         public string LeaveDescription { get; set; }
-
-        [Required]
         public DateTime LeaveStart { get; set; }
-
-        [Required]
         public DateTime LeaveEnd { get; set; }
+
+        public Employee Employee { get; set; }
+
     }
 }
