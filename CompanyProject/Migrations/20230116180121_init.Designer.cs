@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CompanyProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230116160539_init4")]
-    partial class init4
+    [Migration("20230116180121_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -114,9 +114,9 @@ namespace CompanyProject.Migrations
                             Name = "Admin",
                             NormalizedEmail = "ADMIN@COMPANY.PL",
                             NormalizedUserName = "ADMIN@COMPANY.PL",
-                            PasswordHash = "ALggE1zUo1CmGZccjGrdZ4wmqcNoCKQz8XqMXdiIp/BvXDf5GXQOexDpzC2xxyWROw==",
+                            PasswordHash = "AD0KOZSWnkk0djA76nD8rY+IQDcGqEE3BbuoyUjkkNACzYaxExGzoHd3mvOKot+fKg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4b614296-a4bd-4d0a-9fd5-0c7ad042f070",
+                            SecurityStamp = "e4040cfe-aa94-4d38-b496-73652aeea3fc",
                             Surname = "Admin",
                             TwoFactorEnabled = false,
                             UserName = "admin@company.pl"
@@ -125,13 +125,14 @@ namespace CompanyProject.Migrations
 
             modelBuilder.Entity("CompanyProject.Data.Models.EmployeeLeave", b =>
                 {
-                    b.Property<int>("EmployeeId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EmployeeId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("EmployeeId1")
+                    b.Property<string>("EmployeeId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LeaveDescription")
@@ -144,9 +145,9 @@ namespace CompanyProject.Migrations
                     b.Property<DateTime>("LeaveStart")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("EmployeeId");
+                    b.HasKey("Id");
 
-                    b.HasIndex("EmployeeId1");
+                    b.HasIndex("EmployeeId");
 
                     b.ToTable("EmployeeLeave");
                 });
@@ -214,14 +215,14 @@ namespace CompanyProject.Migrations
                         new
                         {
                             Id = "40c6bc97-f08f-41e4-bf60-ccd30ff4ab41",
-                            ConcurrencyStamp = "da4461ff-644d-4423-8d07-007472743fcc",
+                            ConcurrencyStamp = "e1f9a64f-5875-4c24-becc-4cfe62482f15",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "33244a2a-62a8-4f91-83ac-6435a1348629",
-                            ConcurrencyStamp = "757b33c1-931f-48d4-b872-9baf016fd8dc",
+                            ConcurrencyStamp = "d31f196d-eaef-42b9-950d-961b7f14e727",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -348,7 +349,9 @@ namespace CompanyProject.Migrations
                 {
                     b.HasOne("CompanyProject.Data.Models.Employee", "Employee")
                         .WithMany()
-                        .HasForeignKey("EmployeeId1");
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Employee");
                 });

@@ -6,7 +6,7 @@ namespace CompanyProject.Data.Models
     public class EmployeeLeave
     {
         [Key]
-        public int EmployeeId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         public string LeaveDescription { get; set; }
@@ -14,6 +14,9 @@ namespace CompanyProject.Data.Models
         public DateTime LeaveEnd { get; set; }
 
         public Employee Employee { get; set; }
+
+        [ForeignKey("Employee")]
+        public string EmployeeId { get; set; }
 
     }
 }

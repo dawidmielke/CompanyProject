@@ -12,7 +12,7 @@
             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AddEmployee">Add Employee</a>
         </p>
         <div class=" ">
-            <div class="col-12 col-sm-8 col-lg-6">
+            <div class="col-12 col-sm-8 col-lg-6" style="display: grid; grid-template-columns: repeat(4, 1fr)">
                 @foreach (var item in Model)
                 {
                     <div class="col-lg-auto col-md-auto">

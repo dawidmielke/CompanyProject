@@ -159,6 +159,28 @@ namespace CompanyProject.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "EmployeeLeave",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    LeaveDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LeaveStart = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LeaveEnd = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EmployeeId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EmployeeLeave", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_EmployeeLeave_AspNetUsers_EmployeeId",
+                        column: x => x.EmployeeId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "EmployeeTasks",
                 columns: table => new
                 {
@@ -184,17 +206,17 @@ namespace CompanyProject.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "33244a2a-62a8-4f91-83ac-6435a1348629", "2e48f6ab-c510-4988-adf5-14f4d2cebb6c", "User", "USER" });
+                values: new object[] { "33244a2a-62a8-4f91-83ac-6435a1348629", "d31f196d-eaef-42b9-950d-961b7f14e727", "User", "USER" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "40c6bc97-f08f-41e4-bf60-ccd30ff4ab41", "538037a0-ddcc-4aec-8fda-6e117e8fc652", "Administrator", "ADMINISTRATOR" });
+                values: new object[] { "40c6bc97-f08f-41e4-bf60-ccd30ff4ab41", "e1f9a64f-5875-4c24-becc-4cfe62482f15", "Administrator", "ADMINISTRATOR" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "Birth", "ConcurrencyStamp", "Email", "EmailConfirmed", "Image", "LockoutEnabled", "LockoutEnd", "Name", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Surname", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "4808c606-89cf-4a92-8ff6-33074a34a335", 0, new DateTime(2023, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), "6a045f02-029a-484a-a2fb-22e0fd9f55af", "admin@company.pl", true, null, false, null, "Admin", "ADMIN@COMPANY.PL", "ADMIN", "AFjmgkc7iqdj5LavjLSDTelxWQXrZF9oOkNq0JycsfJsBRc2HKZXcpHYJ71+eNSwYA==", null, false, "59e04a1f-19d4-48b3-aeef-726ed22326ed", "Admin", false, "Admin" });
+                values: new object[] { "4808c606-89cf-4a92-8ff6-33074a34a335", 0, new DateTime(2023, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), "6a045f02-029a-484a-a2fb-22e0fd9f55af", "admin@company.pl", true, "iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAARElEQVR42u3PMREAAAgEIE1u9DeDqwcN6KSmHmgRERERERERERERERERERERERERERERERERERERERERERERERERkYsFnhx8ndlgmS8AAAAASUVORK5CYII=", false, null, "Admin", "ADMIN@COMPANY.PL", "ADMIN@COMPANY.PL", "AD0KOZSWnkk0djA76nD8rY+IQDcGqEE3BbuoyUjkkNACzYaxExGzoHd3mvOKot+fKg==", null, false, "e4040cfe-aa94-4d38-b496-73652aeea3fc", "Admin", false, "admin@company.pl" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
@@ -241,6 +263,11 @@ namespace CompanyProject.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_EmployeeLeave_EmployeeId",
+                table: "EmployeeLeave",
+                column: "EmployeeId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_EmployeeTasks_EmployeeId",
                 table: "EmployeeTasks",
                 column: "EmployeeId");
@@ -262,6 +289,9 @@ namespace CompanyProject.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "EmployeeLeave");
 
             migrationBuilder.DropTable(
                 name: "EmployeeTasks");

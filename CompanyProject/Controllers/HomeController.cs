@@ -1,10 +1,12 @@
 ﻿using CompanyProject.Data;
 using CompanyProject.Data.Models;
+using CompanyProject.Data.Repositories;
 using CompanyProject.Interfaces;
 using CompanyProject.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Diagnostics;
 
 namespace CompanyProject.Controllers
@@ -14,12 +16,14 @@ namespace CompanyProject.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<Employee> userManager;
         private readonly ApplicationDbContext context;
+        private readonly ITaskRepository taskRepository;
 
-        public HomeController(ILogger<HomeController> logger, UserManager<Employee> userManager, ApplicationDbContext context)
+        public HomeController(ILogger<HomeController> logger, UserManager<Employee> userManager, ApplicationDbContext context, ITaskRepository taskRepository)
         {
             _logger = logger;
             this.userManager = userManager;
             this.context = context;
+            this.taskRepository = taskRepository;
         }
 
         public IActionResult Index()
@@ -66,6 +70,16 @@ namespace CompanyProject.Controllers
             {
                 return NotFound();
             }
+
+            List<TaskSummaryViewModel> tasksSummary = taskRepository
+                .GetTasksByEmployeeId(id)
+                .OrderBy(x => x.TaskStart)
+                .GroupBy(x => x.TaskStart.ToShortDateString())
+                .Select(g => new TaskSummaryViewModel {Date=g.Key, Hours=g.Sum(x => (x.TaskEnd - x.TaskStart).TotalHours)  })
+                .ToList();
+
+            ViewBag.TasksSummary = JsonConvert.SerializeObject(tasksSummary);
+
             return View(employee);
         }
 
