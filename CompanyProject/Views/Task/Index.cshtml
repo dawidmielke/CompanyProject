@@ -24,7 +24,7 @@
         <div class="col-lg-12">
             <div class="table-responsive">
                 <table class="table project-list-table table-nowrap align-middle table-borderless">
-                    <thead style="background: #fff; padding: 0.75rem 0.75rem">
+                    <thead style="background: #fff; padding: 0.75rem 0.75rem;">
                         <tr>
                             <th>
                                 @Html.DisplayNameFor(model => model.TaskName)
@@ -44,7 +44,7 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody style="background: #fff; padding: 0.75rem 0.75rem">
+                    <tbody style="background: #fff; padding: 0.75rem 0.75rem;">
                         @foreach (var item in Model)
                         {
                             <tr>
@@ -64,9 +64,9 @@
                                     @Html.DisplayFor(modelItem => item.Employee.Id)
                                 </td>
                                 <td>
-                                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                    <a class="link pe-2" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pen"></i> Edit</a>
+                                    <a class="link pe-2" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-info-lg"></i> Details</a>
+                                    <a class="link" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i> Delete</a>
                                 </td>
                             </tr>
                         }
