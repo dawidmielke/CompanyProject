@@ -1,40 +1,43 @@
 ﻿@using CompanyProject.Data.Models
 @model Employee
 
-<div class="d-flex">
-    <div class="card" style="width: 18rem">
-        <div class="thumb-lg member-thumb mx-auto"><img width="100px" style="border-radius: 50%" src="data:image/png;base64, @Html.DisplayFor(modelItem => Model.Image)" /></div>
 
-        <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            @Model.Name
-            @Model.Surname
-        </div>
-    </div>
+<div class="container">
+	<div class="d-flex">
+		<div class="card" style="width: 18rem">
+			<div class="thumb-lg member-thumb mx-auto"><img width="100px" style="border-radius: 50%" src="data:image/png;base64, @Html.DisplayFor(modelItem => Model.Image)" /></div>
+
+			<div class="card-body">
+				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				@Model.Name
+				@Model.Surname
+			</div>
+		</div>
+	</div>
+
+
+	<div id="chartContainer" style="height: 370px; width: 100%;" class="mt-5"></div>
+
+	<script>
+		window.onload = function () {
+
+			var chart = new CanvasJS.Chart("chartContainer", {
+				animationEnabled: true,
+				theme: "light2", // "light1", "light2", "dark1", "dark2"
+				title: {
+					text: "Working hours per day"
+				},
+				axisY: {
+					title: "Hours"
+				},
+				data: [{
+					type: "column",
+					dataPoints: @Html.Raw(ViewBag.TasksSummary)
+				}]
+			});
+			chart.render();
+
+		}
+	</script>
 </div>
 
-
-<div id="chartContainer" style="height: 370px; width: 80%;"></div>
-
-
-<script>
-	window.onload = function () {
-
-		var chart = new CanvasJS.Chart("chartContainer", {
-			animationEnabled: true,
-			theme: "light2", // "light1", "light2", "dark1", "dark2"
-			title: {
-				text: "Working hours per day"
-			},
-			axisY: {
-				title: "Hours"
-			},
-			data: [{
-				type: "column",
-				dataPoints: @Html.Raw(ViewBag.TasksSummary)
-		}]
-		});
-		chart.render();
-
-	}
-</script>

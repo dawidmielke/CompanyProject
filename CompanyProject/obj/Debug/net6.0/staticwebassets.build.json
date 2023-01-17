@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ktTIeoATbl3YaJKaGkYTsjBfapSdNYQOMUy6STYo9jE=",
+  "Hash": "2tGSlXDpWG+OHtVj75KNGEMACgUHA0dAJoQe1npAj30=",
   "Source": "CompanyProject",
   "BasePath": "_content/CompanyProject",
   "Mode": "Default",
@@ -1086,6 +1086,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\dawid\\source\\repos\\CompanyProject\\CompanyProject\\wwwroot\\css\\style.css",
+      "SourceId": "CompanyProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\dawid\\source\\repos\\CompanyProject\\CompanyProject\\wwwroot\\",
+      "BasePath": "_content/CompanyProject",
+      "RelativePath": "css/style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
       "Identity": "C:\\Users\\dawid\\source\\repos\\CompanyProject\\CompanyProject\\wwwroot\\favicon.ico",

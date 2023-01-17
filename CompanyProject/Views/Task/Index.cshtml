@@ -3,61 +3,78 @@
 @{
     ViewData["Title"] = "Index";
 }
+<link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
 
 <div class="container mt-3">
-    <h1>Tasks</h1>
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <h2 class="card-title">
+                    Tasks
+                </h2>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="d-flex flex justify-content-end">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Task" asp-action="AddTask"><i class="bi bi-file-earmark-plus-fill plus-icon"></i> Add Task</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="table-responsive">
+                <table class="table project-list-table table-nowrap align-middle table-borderless">
+                    <thead style="background: #fff; padding: 0.75rem 0.75rem">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TaskName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TaskDescription)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TaskStart)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TaskEnd)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Employee)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody style="background: #fff; padding: 0.75rem 0.75rem">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TaskName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TaskDescription)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TaskStart)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TaskEnd)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Employee.Id)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
-    <p>
-        <a class="nav-link text-dark" asp-area="" asp-controller="Task" asp-action="AddTask"><i class="bi bi-file-earmark-plus-fill plus-icon"></i> Add Task</a>
-    </p>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.TaskName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.TaskDescription)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.TaskStart)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.TaskEnd)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Employee)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TaskName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TaskDescription)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TaskStart)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TaskEnd)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Employee.Id)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
 
 </div>
