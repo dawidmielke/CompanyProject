@@ -4,44 +4,46 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.LeaveDescription)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LeaveStart)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LeaveEnd)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.LeaveDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LeaveStart)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LeaveEnd)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.EmployeeId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.EmployeeId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.EmployeeId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="container">
+    <h1>Leave List</h1>
+    <p>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Leave" asp-action="AddLeave"><i class="bi bi-plus plus-icon"></i> Add Leave</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.LeaveDescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LeaveStart)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LeaveEnd)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LeaveDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LeaveStart)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LeaveEnd)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.EmployeeId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.EmployeeId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.EmployeeId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table
+</div>

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CompanyProject.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 <body>
     <header>
@@ -49,6 +50,15 @@
                             <ul class="dropdown-menu">
                                 <li><a class="nav-link text-dark" asp-area="" asp-controller="Task" asp-action="AddTask">Add Task</a></li>
                                 <li><a class="nav-link text-dark" asp-area="" asp-controller="Task" asp-action="Index">Tasks list</a></li>
+                            </ul>
+                        </div>
+                        <div class="dropdown me-2">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Leaves
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="Leave" asp-action="AddLeave">Add Leave</a></li>
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="Leave" asp-action="Index">Leaves list</a></li>
                             </ul>
                         </div>
                     }
