@@ -64,9 +64,9 @@
                                     @Html.DisplayFor(modelItem => item.Employee.Id)
                                 </td>
                                 <td>
-                                    <a class="link pe-2" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pen"></i> Edit</a>
-                                    <a class="link pe-2" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-info-lg"></i> Details</a>
-                                    <a class="link" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i> Delete</a>
+                                    <a class="link-blue pe-2" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pen"></i> Edit</a>
+                                    <a class="link-black pe-2" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-info-lg"></i> Details</a>
+                                    <a class="link-red" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i> Delete</a>
                                 </td>
                             </tr>
                         }
@@ -75,6 +75,4 @@
             </div>
         </div>
     </div>
-
-
 </div>

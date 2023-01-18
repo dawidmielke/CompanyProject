@@ -53,5 +53,18 @@ namespace CompanyProject.Controllers
 
             return View(model);
         }
+
+        public IActionResult Delete(int id)
+        {
+            var leave = context.EmployeeLeave.FirstOrDefault(x => x.Id == id);
+            if (leave == null)
+            {
+                return NotFound();
+            }
+            context.Remove(leave);
+            context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }

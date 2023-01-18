@@ -4,6 +4,7 @@
     ViewData["Title"] = "Employees";
 }
 
+<link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
 
 <div class="content">
     <div class="container">
@@ -41,9 +42,9 @@
                                 </div>
                             </div>
                             <div class="card-body d-flex justify-content-center">
-                                <a class="ps-3" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                                <a class="ps-3" asp-action="Details" asp-route-id="@item.Id">Details</a>
-                                <a class="ps-3" asp-action="DeleteUser" asp-route-id="@item.Id">Delete</a>
+                                <a class="link-blue ps-3" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pen"></i> Edit</a>
+                                <a class="link-black ps-3" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-info-lg"></i> Details</a>
+                                <a class="link-red ps-3" asp-action="DeleteUser" asp-route-id="@item.Id"><i class="bi bi-trash"></i> Delete</a>
                             </div>
                         </div>
                     </div>

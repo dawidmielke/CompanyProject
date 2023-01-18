@@ -6,10 +6,33 @@
     border-spacing: 0 1.2rem;
 }
 
-.link {
+.link-blue {
     text-decoration: none;
+}
+
+.link-blue:hover {
+    cursor: pointer;
 }
 
 link:hover {
     cursor: pointer;
 }
+
+.link-red {
+    color: #F5403E;
+    text-decoration: none;
+}
+
+.link-red:hover {
+    cursor: pointer;
+    color: #dd3a38;
+} 
+
+.link-black {
+    color: #000;
+    text-decoration: none;
+}
+
+.link-black:hover {
+    cursor: pointer;
+} 

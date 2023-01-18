@@ -54,5 +54,18 @@ namespace CompanyProject.Controllers
 
             return View(model);
         }
+
+
+        public IActionResult Delete(int id)
+        {
+            var task = taskRepository.Get(id);
+            if (task == null)
+            {
+                return NotFound();
+            }
+            taskRepository.Delete(id);
+
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -4,46 +4,70 @@
     ViewData["Title"] = "Index";
 }
 
-<div class="container">
-    <h1>Leave List</h1>
-    <p>
-        <a class="nav-link text-dark" asp-area="" asp-controller="Leave" asp-action="AddLeave"><i class="bi bi-plus plus-icon"></i> Add Leave</a>
-    </p>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.LeaveDescription)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.LeaveStart)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.LeaveEnd)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LeaveDescription)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LeaveStart)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LeaveEnd)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.EmployeeId">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.EmployeeId">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.EmployeeId">Delete</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table
+<link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+
+<div class="container mt-3">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <h2 class="card-title">
+                    Leave
+                </h2>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="d-flex flex justify-content-end">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Leave" asp-action="AddLeave"><i class="bi bi-file-earmark-plus-fill plus-icon"></i> Add Leave</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="table-responsive">
+                <table class="table project-list-table table-nowrap align-middle table-borderless">
+                    <thead style="background: #fff; padding: 0.75rem 0.75rem;">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LeaveDescription)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LeaveStart)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LeaveEnd)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Employee)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody style="background: #fff; padding: 0.75rem 0.75rem;">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LeaveDescription)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LeaveStart)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LeaveEnd)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Employee.Id)
+                                </td>
+                                <td>
+                                    <a class="link-blue pe-2" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pen"></i> Edit</a>
+                                    <a class="link-black pe-2" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-info-lg"></i> Details</a>
+                                    <a class="link-red" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i> Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
