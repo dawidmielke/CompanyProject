@@ -89,7 +89,6 @@ namespace CompanyProject.Controllers
         {
             if (ModelState.IsValid)
             {
-
                 string base64img = null;
                 if (model.Image != null && model.Image.Length > 0)
                 {

@@ -13,10 +13,12 @@ namespace CompanyProject.Controllers
     public class TaskController : Controller
     {
         private readonly ITaskRepository taskRepository;
+        private readonly ApplicationDbContext context;
 
-        public TaskController(ITaskRepository taskRepository)
+        public TaskController(ITaskRepository taskRepository, ApplicationDbContext context)
         {
             this.taskRepository = taskRepository;
+            this.context = context;
         }
 
         private string GetUserId()
@@ -54,6 +56,16 @@ namespace CompanyProject.Controllers
 
             return View(model);
         }
+
+        //public IActionResult Details(TaskViewModel model) // string id 
+        //{
+        //    var task = context.EmployeeTasks.Find(model);
+
+        //    if (task == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //}
 
 
         public IActionResult Delete(int id)

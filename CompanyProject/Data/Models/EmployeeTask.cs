@@ -9,9 +9,16 @@ namespace CompanyProject.Data.Models
         public int Id { get; set; }
 
         [Required]
+        [Display(Name = "Task Name")]
         public string TaskName { get; set; }
+
+        [Display(Name = "Task Description")]
         public string TaskDescription { get; set; }
+
+        [Display(Name = "Task Start")]
         public DateTime TaskStart { get; set; }
+
+        [Display(Name = "Task End")]
         public DateTime TaskEnd { get; set; }
 
         public Employee Employee { get; set; }
