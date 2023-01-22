@@ -57,6 +57,11 @@ namespace CompanyProject.Controllers
             return View(model);
         }
 
+        //public IActionResult Edit()
+        //{
+
+        //}
+
         //public IActionResult Details(TaskViewModel model) // string id 
         //{
         //    var task = context.EmployeeTasks.Find(model);

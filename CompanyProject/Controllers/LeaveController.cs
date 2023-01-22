@@ -54,10 +54,10 @@ namespace CompanyProject.Controllers
             return View(model);
         }
 
-        public IActionResult Details()
-        {
+        //public IActionResult Details()
+        //{
 
-        }
+        //}
 
         public IActionResult Delete(int id)
         {

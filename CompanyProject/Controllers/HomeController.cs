@@ -6,6 +6,7 @@ using CompanyProject.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.Diagnostics;
 
@@ -31,16 +32,29 @@ namespace CompanyProject.Controllers
             return View();
         }
 
+        //[Authorize(Roles = "Administrator")]
+        public async Task<IActionResult> Employees(string id)
+        {
+            var employee = from m in context.Users
+                           select m;
+            if (!String.IsNullOrEmpty(id)) 
+            {
+                employee = employee.Where(x => x.Name!.Contains(id));
+            }
+
+            return View(await employee.ToListAsync());
+        }
+
         public IActionResult Privacy()
         {
             return View();
         }
 
-        [Authorize(Roles = "Administrator")]
-        public IActionResult Employees()
-        {
-            return View(context.Users.ToList());
-        }
+        //[Authorize(Roles = "Administrator")]
+        //public IActionResult Employees()
+        //{
+        //    return View(context.Users.ToList());
+        //}
 
 
         [Authorize(Roles = "Administrator")]
