@@ -20,7 +20,8 @@ html {
 }*/
 
 body {
-  background-color: #eee;
+    background-color: #eee;
+    font-family: 'Lato', sans-serif;
 }
 .red {
     background-color: red;
