@@ -3,6 +3,7 @@ using CompanyProject.Data.Models;
 using CompanyProject.Data.Repositories;
 using CompanyProject.Interfaces;
 using CompanyProject.Models;
+using CompanyProject.Tools;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -33,17 +34,17 @@ namespace CompanyProject.Controllers
             return View();
         }
 
-        //[Authorize(Roles = "Administrator")]
-        public async Task<IActionResult> Employees(string id)
+        [Authorize(Roles = "Administrator")]
+        public IActionResult Employees(string SearchString)
         {
             var employee = from m in context.Users
                            select m;
-            if (!String.IsNullOrEmpty(id)) 
+            if (!string.IsNullOrEmpty(SearchString)) 
             {
-                employee = employee.Where(x => x.Name!.Contains(id));
+                employee = employee.Where(x => x.Name!.Contains(SearchString));
             }
 
-            return View(await employee.ToListAsync());
+            return View(employee.ToList());
         }
 
         public IActionResult Privacy()
@@ -71,19 +72,83 @@ namespace CompanyProject.Controllers
             return RedirectToAction("Employees");
         }
 
-        //public IActionResult Edit(string id)
-        //{
-        //    var employee = context.Users.Find(id);
-        //    if(employee == null)
-        //    {
-        //        return NotFound();
-        //    }
+        [Authorize(Roles = "Administrator")]
+        public IActionResult EditEmployee(string id)
+        {
+            var employee = context.Users.Find(id);
+            if (employee == null)
+            {
+                return NotFound("Employee not found");
+            }
+            var model = new EmployeeEditViewModel
+            {
+                Birth = employee.Birth.Value,
+                Email = employee.Email,
+                Name = employee.Name,
+                Surname = employee.Surname,
+            };
+            var roles = userManager.GetRolesAsync(employee).Result;
+            if(roles.Count() > 0)
+            {
+                model.Role = roles[0];
+            }
 
-        //    var employee = new EditEmployeeViewModel
-        //    {
+            return View(model);
+        }
 
-        //    }
-        //}
+        [Authorize(Roles = "Administrator")]
+        [HttpPost]
+        public IActionResult EditEmployee(string id, EmployeeEditViewModel model)
+        {
+            var employee = context.Users.Find(id);
+            if (employee == null)
+            {
+                return NotFound("Employee not found");
+            }
+
+            if(ModelState.IsValid)
+            {
+                employee.Surname = model.Surname;
+                employee.Name = model.Name;
+                employee.Birth = model.Birth;
+                employee.Email = model.Email;
+
+                if(!string.IsNullOrEmpty(model.Password))
+                {
+                    employee.PasswordHash = PasswordUtil.HashPassword(model.Password);
+                }
+
+
+                if(model.Image != null)
+                {
+                    employee.Image = ImageUtil.ToBase64Image(model.Image);
+                }
+
+                var roles = userManager.GetRolesAsync(employee).Result;
+                if (roles.Count() > 0)
+                {
+                    var role = roles[0];
+                    if (role != model.Role)
+                    {
+                        userManager.RemoveFromRoleAsync(employee, roles[0]).Wait();
+                        userManager.AddToRoleAsync(employee, model.Role).Wait();
+
+                    }
+                }
+                else
+                {
+                    userManager.AddToRoleAsync(employee, model.Role).Wait();
+                }
+
+                context.SaveChanges();
+                return RedirectToAction("Employees", "Home");   
+            }
+
+
+
+
+            return View(model);
+        }
 
         [Authorize(Roles = "Administrator")]
         public IActionResult AddEmployee()
@@ -118,17 +183,6 @@ namespace CompanyProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                string base64img = null;
-                if (model.Image != null && model.Image.Length > 0)
-                {
-                    using (var ms = new MemoryStream())
-                    {
-                        model.Image.CopyTo(ms);
-                        var fileBytes = ms.ToArray();
-                        base64img = Convert.ToBase64String(fileBytes);
-                    }
-                }
-
                 Employee user = new Employee
                 {
                     Email = model.Email,
@@ -136,7 +190,7 @@ namespace CompanyProject.Controllers
                     Surname = model.Surname,
                     Name = model.Name,
                     Birth = model.Birth,
-                    Image = base64img
+                    Image = ImageUtil.ToBase64Image(model.Image)
                 };
                 userManager.CreateAsync(user, model.Password).Wait();
                 userManager.AddToRoleAsync(user, model.Role).Wait();

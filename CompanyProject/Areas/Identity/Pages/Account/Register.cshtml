@@ -14,12 +14,43 @@
                                 <h1 class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">@ViewData["Title"]</h1>
                                 <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="mx-1 mx-md-4">
                                     <h2 class="fw-bold text-center mb-3">Create a new account.</h2>
+
+                                    <div class="d-flex flex-row align-items-center mb-3">
+                                        <div class="form-group p-2">
+                                            <label asp-for="Input.Name"></label>
+                                            <input class="form-control" asp-for="Input.Name" />
+                                            <span asp-validation-for="Input.Name" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-3">
+                                        <div class="form-group p-2">
+                                            <label asp-for="Input.Surname"></label>
+                                            <input class="form-control" asp-for="Input.Surname" />
+                                            <span asp-validation-for="Input.Surname" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
                                     <div class="d-flex flex-row align-items-center mb-3">
                                         <div class="form-floating flex-fill mb-0">
                                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                             <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
                                             <label class="form-label" asp-for="Input.Email"></label>
                                             <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-3">
+                                        <div class="form-group p-2">
+                                            <label asp-for="Input.Birth"></label>
+                                            <input class="form-control" asp-for="Input.Birth" />
+                                            <span asp-validation-for="Input.Birth" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-3">
+                                        <div class="form-group p-2">
+                                            <label asp-for="Input.Image"></label>
+                                            <input class="form-control" asp-for="Input.Image" type="file" placeholder="Image" />
+                                            <span asp-validation-for="Input.Image" class="text-danger"></span>
                                         </div>
                                     </div>
                                     <div class="d-flex flex-row align-items-center mb-3">

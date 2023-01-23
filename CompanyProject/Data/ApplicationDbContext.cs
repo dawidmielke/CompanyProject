@@ -1,4 +1,5 @@
 ﻿using CompanyProject.Data.Models;
+using CompanyProject.Tools;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -51,7 +52,7 @@ namespace CompanyProject.Data
                     Image = "iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAARElEQVR42u3PMREAAAgEIE1u9DeDqwcN6KSmHmgRERERERERERERERERERERERERERERERERERERERERERERERERkYsFnhx8ndlgmS8AAAAASUVORK5CYII=",
                     EmailConfirmed = true,
                     Id = "4808c606-89cf-4a92-8ff6-33074a34a335",
-                    PasswordHash = HashPassword("Admin1234")
+                    PasswordHash = PasswordUtil.HashPassword("Admin1234")
                 }
             });
 
@@ -60,28 +61,6 @@ namespace CompanyProject.Data
                 new IdentityUserRole<string> {UserId="4808c606-89cf-4a92-8ff6-33074a34a335", RoleId="40c6bc97-f08f-41e4-bf60-ccd30ff4ab41"}
             });
         }
-
-        public static string HashPassword(string password)
-        {
-            byte[] salt;
-            byte[] buffer2;
-            if (password == null)
-            {
-                throw new ArgumentNullException("password");
-            }
-            using (Rfc2898DeriveBytes bytes = new Rfc2898DeriveBytes(password, 0x10, 0x3e8))
-            {
-                salt = bytes.Salt;
-                buffer2 = bytes.GetBytes(0x20);
-            }
-            byte[] dst = new byte[0x31];
-            Buffer.BlockCopy(salt, 0, dst, 1, 0x10);
-            Buffer.BlockCopy(buffer2, 0, dst, 0x11, 0x20);
-            return Convert.ToBase64String(dst);
-        }
-    
-
-
 
     public DbSet<EmployeeTask> EmployeeTasks { get; set; }
 

@@ -1,0 +1,81 @@
+﻿@model EmployeeEditViewModel
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div class="card">
+                <div class="card-header text-start">
+                    <h1><b>Edit Employee</b></h1>
+                </div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group p-2">
+                                            <label asp-for="Name"></label>
+                                            <input class="form-control" asp-for="Name" />
+                                            <span asp-validation-for="Name" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group p-2">
+                                            <label asp-for="Surname"></label>
+                                            <input class="form-control" asp-for="Surname" />
+                                            <span asp-validation-for="Surname" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group p-2">
+                                            <label asp-for="Email"></label>
+                                            <input class="form-control" asp-for="Email" />
+                                            <span asp-validation-for="Email" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group p-2">
+                                            <label asp-for="Birth"></label>
+                                            <input class="form-control" asp-for="Birth" />
+                                            <span asp-validation-for="Birth" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group p-2">
+                                            <label asp-for="Password"></label>
+                                            <input class="form-control" asp-for="Password" type="password" />
+                                            <span asp-validation-for="Password" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group p-2">
+                                            <label asp-for="Image" ></label>
+                                            <input class="form-control" asp-for="Image" type="file" placeholder="Image"/>
+                                            <span asp-validation-for="Image" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group p-2">
+                                            <label asp-for="Role"></label>
+                                            <select class="form-control" asp-for="Role">
+                                                <option value="Administrator">Administrator</option>
+                                                <option value="User">User</option>
+                                            </select>
+                                            <span asp-validation-for="Role" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-2">
+                            <button class="btn btn-dark">Submit</button>
+                            <button class="btn btn-dark" asp-area="" asp-controller="Home" asp-action="Employees">Employee List</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
