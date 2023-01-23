@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using System.Reflection.Metadata.Ecma335;
 
 namespace CompanyProject.Controllers
 {
@@ -69,6 +70,20 @@ namespace CompanyProject.Controllers
 
             return RedirectToAction("Employees");
         }
+
+        //public IActionResult Edit(string id)
+        //{
+        //    var employee = context.Users.Find(id);
+        //    if(employee == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var employee = new EditEmployeeViewModel
+        //    {
+
+        //    }
+        //}
 
         [Authorize(Roles = "Administrator")]
         public IActionResult AddEmployee()

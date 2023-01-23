@@ -62,15 +62,16 @@ namespace CompanyProject.Controllers
 
         //}
 
-        //public IActionResult Details(TaskViewModel model) // string id 
-        //{
-        //    var task = context.EmployeeTasks.Find(model);
+        public IActionResult Details(int id) // string id 
+        {
+            var task = context.EmployeeTasks.Find(id);
 
-        //    if (task == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //}
+            if (task == null)
+            {
+                return NotFound();
+            }
+            return View("Details");
+        }
 
 
         public IActionResult Delete(int id)
