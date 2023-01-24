@@ -64,12 +64,13 @@ link:hover {
     z-index: 1;
 }
 
-.container-login {
+.section-login {
     min-width: 100vh;
+    background: #e9ecef;
 }
 
 .wrap-login100 {
-    width: 45rem;
+    width: 40rem;
     background: #fff;
     border-radius: 3px;
     overflow: hidden;
