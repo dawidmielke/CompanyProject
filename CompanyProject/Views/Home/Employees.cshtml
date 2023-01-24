@@ -6,56 +6,63 @@
 
 <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
 
-<div class="content">
+<section>
     <div class="container">
-        <h1>Employees</h1>
+        <div class="row py-5">
+            <div class="text-center">
+                <h1 class="fw-light">Employee List</h1>
+            </div>
+        </div>
+        <form asp-controller="Home" asp-action="Employees" method="get">
+            <div class="mb-3">
+                <label for="Name" class="form-label">Name</label>
+                <input type="text" class="form-control" name="SearchString" />
+            </div>
+            <input class="btn btn-dark" type="submit" value="Filter" />
+        </form>
         <p>
             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AddEmployee"><i class="bi bi-person-plus-fill plus-icon"></i> Add Employee</a>
         </p>
-        <form asp-controller="Home" asp-action="Employees" method="get">
-            <p>
-                Name: <input type="text" name="SearchString" />
-                <input class="btn btn-dark" type="submit" value="Filter" />
-            </p>
-        </form>
-        <div class=" ">
-            <div class="col-12 col-sm-8 col-lg-6" style="display: grid; grid-template-columns: repeat(4, 1fr)">
-                @foreach (var item in Model)
-                {
-                    <div class="col-lg-auto col-md-auto">
-                        <div class="card card-box p-5">
-                            <div class="thumb-lg member-thumb mx-auto"><img width="100px" style="border-radius: 50%" src="data:image/png;base64, @Html.DisplayFor(modelItem => item.Image)" /></div>
-                            <div class="card-body">
-                                <div class="d-flex">
-                                    <p class="card-text">@Html.DisplayNameFor(model => model.Surname)</p>
-                                    <p class="card-text ps-3">@Html.DisplayFor(modelItem => item.Surname)</p>
-                                </div>
-                                <div class="d-flex">
-                                    <p class="card-text">@Html.DisplayNameFor(model => model.Name)</p>
-                                    <p class="card-text ps-3">@Html.DisplayFor(modelItem => item.Name)</p>
-                                </div>
-                                <div class="d-flex">
-                                    <p class="card-text">@Html.DisplayNameFor(model => model.Email)l</p>
-                                    <p class="card-text ps-3">@Html.DisplayFor(modelItem => item.Email)</p>
-                                </div>
-                                <div class="d-flex">
-                                    <p class="card-text">@Html.DisplayNameFor(model => model.UserName)</p>
-                                    <p class="card-text ps-3">@Html.DisplayFor(modelItem => item.UserName)</p>
-                                </div>
-                                <div class="d-flex">
-                                    <p class="card-text">@Html.DisplayNameFor(model => model.Birth)</p>
-                                    <p class="card-text ps-3">@Html.DisplayFor(modelItem => item.Birth)</p>
-                                </div>
+    </div>
+</section>
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            @foreach (var item in Model)
+            {
+                <div class="col">
+                    <div class="card shadow-sm p-4">
+                        <div class="banner"></div>
+                        <img class="img-circle mx-auto mb-3" src="data:image/png;base64, @Html.DisplayFor(modelItem => item.Image)" alt="user-image"/>
+                        <h3 class="mb-4 text-center">
+                            @Html.DisplayFor(modelItem => item.Surname) @Html.DisplayFor(modelItem => item.Name)
+                        </h3>
+                        <div class="card-body ps-4 pe-4">
+                            <div class="mb-4"> 
+                                <p class="mb-2">
+                                    <i class="bi bi-envelope-fill pe-1"></i>
+                                    @Html.DisplayFor(modelItem => item.UserName)
+                                </p>
+                                <p class="mb-2">
+                                    <i class="bi bi-person-circle pe-1"></i>
+                                    @Html.DisplayFor(modelItem => item.UserName)
+                                </p>
+                                <p class="mb-2">
+                                    <i class="bi bi-calendar pe-1"></i>
+                                    @Html.DisplayFor(modelItem => item.Birth)
+                                </p>
                             </div>
-                            <div class="card-body d-flex justify-content-center">
-                                <a class="link-blue ps-3" asp-action="EditEmployee" asp-route-id="@item.Id"><i class="bi bi-pen"></i> Edit</a>
-                                <a class="link-black ps-3" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-info-lg"></i> Details</a>
-                                <a class="link-red ps-3" asp-action="DeleteUser" asp-route-id="@item.Id"><i class="bi bi-trash"></i> Delete</a>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group d-flex justify-content-center">
+                                    <a asp-action="EditEmployee" asp-route-id="@item.Id" type="button" class="btn btn-sm btn-outline-primary">Edit</a>
+                                    <a asp-action="Details" asp-route-id="@item.Id" type="button" class="btn btn-sm btn-outline-secondary">Details</a>
+                                    <a asp-action="DeleteUser" asp-route-id="@item.Id" type="button" class="btn btn-sm btn-outline-danger">Delete</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                }
-            </div>
+                </div>
+            }
         </div>
     </div>
 </div>

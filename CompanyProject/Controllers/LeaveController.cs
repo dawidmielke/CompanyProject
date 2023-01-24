@@ -48,7 +48,7 @@ namespace CompanyProject.Controllers
                 };
                 context.Add(leave);
                 context.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Leave");
             }
 
             return View(model);

@@ -51,7 +51,8 @@ namespace CompanyProject.Controllers
                 };
 
                 taskRepository.Create(task);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Task");
+
             }
 
             return View(model);

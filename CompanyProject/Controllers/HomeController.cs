@@ -1,16 +1,13 @@
 ﻿using CompanyProject.Data;
 using CompanyProject.Data.Models;
 using CompanyProject.Data.Repositories;
-using CompanyProject.Interfaces;
 using CompanyProject.Models;
 using CompanyProject.Tools;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.Diagnostics;
-using System.Reflection.Metadata.Ecma335;
 
 namespace CompanyProject.Controllers
 {
@@ -51,13 +48,6 @@ namespace CompanyProject.Controllers
         {
             return View();
         }
-
-        //[Authorize(Roles = "Administrator")]
-        //public IActionResult Employees()
-        //{
-        //    return View(context.Users.ToList());
-        //}
-
 
         [Authorize(Roles = "Administrator")]
         public IActionResult DeleteUser(string id)
@@ -194,6 +184,7 @@ namespace CompanyProject.Controllers
                 };
                 userManager.CreateAsync(user, model.Password).Wait();
                 userManager.AddToRoleAsync(user, model.Role).Wait();
+                return RedirectToAction("Employees", "Home");
             }
 
             return View(model);

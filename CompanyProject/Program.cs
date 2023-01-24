@@ -1,9 +1,6 @@
 using CompanyProject.Data;
 using CompanyProject.Data.Models;
 using CompanyProject.Data.Repositories;
-using CompanyProject.Helpers;
-using CompanyProject.Interfaces;
-using CompanyProject.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
