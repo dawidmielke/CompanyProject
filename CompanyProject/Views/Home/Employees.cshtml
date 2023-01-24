@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row py-5">
             <div class="text-center">
-                <h1 class="fw-light">Employee List</h1>
+                <h1 class="fw-light fw-bold">Employee List</h1>
             </div>
         </div>
         <form asp-controller="Home" asp-action="Employees" method="get">
@@ -20,7 +20,7 @@
             </div>
             <input class="btn btn-dark" type="submit" value="Filter" />
         </form>
-        <p>
+        <p class="add-button">
             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AddEmployee"><i class="bi bi-person-plus-fill plus-icon"></i> Add Employee</a>
         </p>
     </div>

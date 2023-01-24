@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Wz/R6iG36IbBj9X6YZzk7blNGgx+zsuJYQKLQqbmZYo=",
+  "Hash": "HPSHMKv4edweD8pLWmSXnfWIAl4BWQAMPejnSVfcUnw=",
   "Source": "CompanyProject",
   "BasePath": "_content/CompanyProject",
   "Mode": "Default",
@@ -1154,6 +1154,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\ceo.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\dawid\\source\\repos\\CompanyProject\\CompanyProject\\wwwroot\\img\\default-favicon.ico",
+      "SourceId": "CompanyProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\dawid\\source\\repos\\CompanyProject\\CompanyProject\\wwwroot\\",
+      "BasePath": "_content/CompanyProject",
+      "RelativePath": "img/default-favicon.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\default-favicon.ico"
     },
     {
       "Identity": "C:\\Users\\dawid\\source\\repos\\CompanyProject\\CompanyProject\\wwwroot\\img\\designer.jpg",
