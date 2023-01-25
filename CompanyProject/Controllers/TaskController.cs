@@ -58,10 +58,44 @@ namespace CompanyProject.Controllers
             return View(model);
         }
 
-        //public IActionResult Edit()
-        //{
+        public IActionResult Edit(int id)
+        {
+            var task = context.EmployeeTasks.Find(id);
+            if(task == null)
+            {
+                return NotFound("Task not found");
+            }
+            
+            var model = new TaskEditViewModel
+            {
+                TaskName = task.TaskName,
+                TaskDescription = task.TaskDescription,
+                TaskStart = task.TaskStart,
+                TaskEnd = task.TaskEnd
+            };
+            return View(model);
+        }
 
-        //}
+        [HttpPost]
+        public IActionResult Edit(int id, TaskEditViewModel model)
+        {
+            var task = context.EmployeeTasks.Find(id);
+            if (task == null)
+            {
+                return NotFound("leave not found");
+            }
+
+            if (ModelState.IsValid)
+            {
+                task.TaskName = model.TaskName;
+                task.TaskDescription = model.TaskDescription;
+                task.TaskStart = model.TaskStart;
+                task.TaskEnd = model.TaskEnd;
+                context.SaveChanges();
+                return RedirectToAction("Index", "Task");
+            }
+            return View(model);
+        }
 
         public IActionResult Details(int id) // string id 
         {

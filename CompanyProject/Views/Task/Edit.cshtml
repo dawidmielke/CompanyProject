@@ -1,0 +1,55 @@
+﻿@model TaskEditViewModel
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div class="card">
+                <div class="card-header text-start">
+                    <h1><b>Add Task</b></h1>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group p-2">
+                                            <label asp-for="TaskName"></label>
+                                            <input class="form-control" asp-for="TaskName" />
+                                            <span asp-validation-for="TaskName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group p-2">
+                                            <label asp-for="TaskDescription"></label>
+                                            <input class="form-control" asp-for="TaskDescription" />
+                                            <span asp-validation-for="TaskDescription" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group p-2">
+                                            <label asp-for="TaskStart"></label>
+                                            <input class="form-control" asp-for="TaskStart" />
+                                            <span asp-validation-for="TaskStart" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group p-2">
+                                            <label asp-for="TaskEnd"></label>
+                                            <input class="form-control" asp-for="TaskEnd" />
+                                            <span asp-validation-for="TaskEnd" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-danger" id="date-error"></p>
+                        <div class="p-2">
+                            <button id="task-submit" style="display: none" class="btn btn-dark">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
