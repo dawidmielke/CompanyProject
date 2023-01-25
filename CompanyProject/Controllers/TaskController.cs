@@ -92,7 +92,7 @@ namespace CompanyProject.Controllers
                 task.TaskStart = model.TaskStart;
                 task.TaskEnd = model.TaskEnd;
                 context.SaveChanges();
-                return RedirectToAction("Index", "Task");
+                return RedirectToAction("Edit", "Task");
             }
             return View(model);
         }
