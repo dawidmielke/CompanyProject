@@ -1,114 +1,85 @@
 ﻿@page
 @model RegisterModel
-@{
-    ViewData["Title"] = "Sign up";
-}
-<section>
-    <div class="container mt-3">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-lg-12 col-xl-11">
-                <div class="card text-black" style="border-radius: 25px;">
-                    <div class="card-body p-md-5">
-                        <div class="row justify-content-center">
-                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                                <h1 class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">@ViewData["Title"]</h1>
-                                <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="mx-1 mx-md-4">
-                                    <h2 class="fw-bold text-center mb-3">Create a new account.</h2>
 
-                                    <div class="d-flex flex-row align-items-center mb-3">
-                                        <div class="form-group p-2">
-                                            <label asp-for="Input.Name"></label>
-                                            <input class="form-control" asp-for="Input.Name" />
-                                            <span asp-validation-for="Input.Name" class="text-danger"></span>
+<section class="">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center ">
+            <div class="col">
+                <div class="card card-registration my-4">
+                    <div class="row g-0">
+                        <div class="col-xl-6 d-none d-xl-block">
+                            <img src="/img/employees.jpg"
+                                 alt="Sample photo" class="img-fluid"
+                                 style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+                            <div class="hero-shadow">
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="card-body p-md-5 text-black">
+                                <h3 class="mb-5 text-uppercase">Employee registration form</h3>
+                                <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-5">
+                                            <div class="form-outline">
+                                                <label class="form-label" asp-for="Input.Name"></label>
+                                                <input type="text" class="form-control form-control-lg" asp-for="Input.Name" />
+                                                <span asp-validation-for="Input.Name" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-5">
+                                            <div class="form-outline">
+                                                <label class="form-label" asp-for="Input.Surname"></label>
+                                                <input type="text" class="form-control form-control-lg" asp-for="Input.Surname" />
+                                                <span asp-validation-for="Input.Surname" class="text-danger"></span>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div class="d-flex flex-row align-items-center mb-3">
-                                        <div class="form-group p-2">
-                                            <label asp-for="Input.Surname"></label>
-                                            <input class="form-control" asp-for="Input.Surname" />
-                                            <span asp-validation-for="Input.Surname" class="text-danger"></span>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-5">
+                                            <div class="form-outline">
+                                                <label class="form-label" asp-for="Input.Email"></label>
+                                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                                <input asp-for="Input.Email" class="form-control form-control-lg" autocomplete="username" aria-required="true" />
+                                                <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-5">
+                                            <div class="form-outline">
+                                                <label class="form-label" asp-for="Input.Birth"></label>
+                                                <input class="form-control form-control-lg" asp-for="Input.Birth" />
+                                                <span asp-validation-for="Input.Birth" class="text-danger"></span>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div class="d-flex flex-row align-items-center mb-3">
-                                        <div class="form-floating flex-fill mb-0">
-                                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                                            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
-                                            <label class="form-label" asp-for="Input.Email"></label>
-                                            <span asp-validation-for="Input.Email" class="text-danger"></span>
-                                        </div>
+                                    <div class="form-outline mb-5">
+                                        <label class="form-label" asp-for="Input.Image"></label>
+                                        <input class="form-control form-control-lg" asp-for="Input.Image" type="file" placeholder="Image" />
+                                        <span asp-validation-for="Input.Image" class="text-danger"></span>
                                     </div>
-                                    <div class="d-flex flex-row align-items-center mb-3">
-                                        <div class="form-group p-2">
-                                            <label asp-for="Input.Birth"></label>
-                                            <input class="form-control" asp-for="Input.Birth" />
-                                            <span asp-validation-for="Input.Birth" class="text-danger"></span>
-                                        </div>
+
+                                    <div class="form-outline mb-5">
+                                        <label class="form-label" asp-for="Input.Password"></label>
+                                        <input class="form-control form-control-lg" asp-for="Input.Password" autocomplete="new-password" aria-required="true" />
+                                        <span asp-validation-for="Input.Password" class="text-danger"></span>
                                     </div>
-                                    <div class="d-flex flex-row align-items-center mb-3">
-                                        <div class="form-group p-2">
-                                            <label asp-for="Input.Image"></label>
-                                            <input class="form-control" asp-for="Input.Image" type="file" placeholder="Image" />
-                                            <span asp-validation-for="Input.Image" class="text-danger"></span>
-                                        </div>
+
+                                    <div class="form-outline mb-5">
+                                        <label class="form-label" asp-for="Input.ConfirmPassword"></label>
+                                        <input asp-for="Input.ConfirmPassword" class="form-control form-control-lg" autocomplete="new-password" aria-required="true" />
+                                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                                     </div>
-                                    <div class="d-flex flex-row align-items-center mb-3">
-                                        <div class="form-floating flex-fill mb-0">
-                                            <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
-                                            <label asp-for="Input.Password"></label>
-                                            <span asp-validation-for="Input.Password" class="text-danger"></span>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-row align-items-center mb-3">
-                                        <div class="form-floating flex-fill mb-0">
-                                            <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
-                                            <label asp-for="Input.ConfirmPassword"></label>
-                                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+
+                                    <div class="d-flex mx-4 mb-3 mb-lg-4">
                                         <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
                                     </div>
-                                    
                                 </form>
-                            </div>
-                            <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                                <section>
-                                    <h3>Use another service to register.</h3>
-                                    <hr />
-                                    @{
-                                        if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                                        {
-                                            <div>
-                                                <p>
-                                                    There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">
-                                                        article
-                                                        about setting up this ASP.NET application to support logging in via external services
-                                                    </a>.
-                                                </p>
-                                            </div>
-                                        }
-                                        else
-                                        {
-                                            <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                                                <div>
-                                                    <p>
-                                                        @foreach (var provider in Model.ExternalLogins)
-                                                        {
-                                                            <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                                        }
-                                                    </p>
-                                                </div>
-                                            </form>
-                                        }
-                                    }
-                                </section>
                             </div>
                         </div>
                     </div>
-                </div>    
-            </div>             
+                </div>
+            </div>
         </div>
     </div>
 </section>
