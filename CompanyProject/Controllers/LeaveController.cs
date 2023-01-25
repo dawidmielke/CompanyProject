@@ -1,5 +1,4 @@
-﻿using AspNetCore;
-using CompanyProject.Data;
+﻿using CompanyProject.Data;
 using CompanyProject.Data.Models;
 using CompanyProject.Data.Repositories;
 using CompanyProject.Models;
@@ -54,7 +53,8 @@ namespace CompanyProject.Controllers
 
             return View(model);
         }
-        public IActionResult Edit(string id)
+
+        public IActionResult Edit(int id)
         {
             var leave = context.EmployeeLeave.Find(id);
 
@@ -73,7 +73,7 @@ namespace CompanyProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(string id, LeaveEditViewModel model)
+        public IActionResult Edit(int id, LeaveEditViewModel model)
         {
             var leave = context.EmployeeLeave.Find(id);
             if (leave == null)

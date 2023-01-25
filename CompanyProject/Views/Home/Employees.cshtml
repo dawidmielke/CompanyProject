@@ -16,7 +16,11 @@
         <form asp-controller="Home" asp-action="Employees" method="get">
             <div class="mb-3">
                 <label for="Name" class="form-label">Name</label>
-                <input type="text" class="form-control" name="SearchString" />
+                <input id="Name" type="text" class="form-control" name="Name" />
+            </div>
+            <div class="mb-3">
+                <label for="Surname" class="form-label">Surname</label>
+                <input id="Surname" type="text" class="form-control" name="Surname" />
             </div>
             <input class="btn btn-dark" type="submit" value="Filter" />
         </form>

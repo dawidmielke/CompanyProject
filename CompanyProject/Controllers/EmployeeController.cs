@@ -1,6 +1,8 @@
 ﻿using CompanyProject.Data;
 using CompanyProject.Data.Models;
 using CompanyProject.DTO;
+using CompanyProject.Services;
+using CompanyProject.Tools;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -15,17 +17,19 @@ namespace CompanyProject.Controllers
     {
         private readonly ApplicationDbContext context;
         private readonly UserManager<Employee> userManager;
+        private readonly IEmployeeService employeeService;
 
-        public EmployeeController(ApplicationDbContext context, UserManager<Employee> userManager)
+        public EmployeeController(ApplicationDbContext context, UserManager<Employee> userManager, IEmployeeService employeeService)
         {
             this.context = context;
             this.userManager = userManager;
+            this.employeeService = employeeService;
         }
 
         [HttpGet]
-        public List<EmployeeGetDTO> Get()
+        public IActionResult Get()
         {
-            return context.Users.Select(x => new EmployeeGetDTO
+            return Ok(context.Users.Select(x => new EmployeeGetDTO
             {
                 Id = x.Id,
                 Birth = x.Birth,
@@ -33,13 +37,13 @@ namespace CompanyProject.Controllers
                 Image = x.Image,
                 Name = x.Name,
                 Surname = x.Surname
-            }).ToList();
+            }).ToList());
         }
 
         [HttpGet("{id}")]
-        public EmployeeGetDTO Get(string id)
+        public IActionResult Get(string id)
         {
-            return context.Users.Select(x => new EmployeeGetDTO
+            return Ok(context.Users.Select(x => new EmployeeGetDTO
             {
                 Id = x.Id,
                 Birth = x.Birth,
@@ -47,24 +51,14 @@ namespace CompanyProject.Controllers
                 Image = x.Image,
                 Name = x.Name,
                 Surname = x.Surname
-            }).FirstOrDefault(x => x.Id == id);
+            }).FirstOrDefault(x => x.Id == id));
         }
 
         [HttpPost]
-        public string Create(EmployeeCreateDTO model)
+        public IActionResult Create(EmployeeCreateDTO model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                string base64img = null;
-                if (model.Image != null && model.Image.Length > 0)
-                {
-                    using (var ms = new MemoryStream())
-                    {
-                        model.Image.CopyTo(ms);
-                        var fileBytes = ms.ToArray();
-                        base64img = Convert.ToBase64String(fileBytes);
-                    }
-                }
 
                 Employee user = new Employee
                 {
@@ -73,14 +67,71 @@ namespace CompanyProject.Controllers
                     Surname = model.Surname,
                     Name = model.Name,
                     Birth = model.Birth,
-                    Image = base64img
                 };
-                userManager.CreateAsync(user, model.Password).Wait();
-                userManager.AddToRoleAsync(user, model.Role).Wait();
-                return "OK";
+
+                (bool success, string messate) = employeeService.AddEmployee(user, model.Password, model.Image, model.Role);
+                if (success)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return BadRequest("Blad dodawania: " + messate);
+                }
+                return Ok();
             }
 
-            return "Błąd zapytania";
+            return BadRequest("Niepoprawne dane w zapytaniu");
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Update(string id, EmployeeUpdateDTO model)
+        {
+            var employee = context.Users.Find(id);
+            if (employee == null)
+            {
+                return NotFound("Employee not found");
+            }
+
+            if (ModelState.IsValid)
+            {
+                employee.Surname = model.Surname;
+                employee.Name = model.Name;
+                employee.Birth = model.Birth;
+                employee.Email = model.Email;
+
+                (bool success, string messate) = employeeService.EditEmployee(id, employee, model.Password, model.Image, model.Role);
+                if(success)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return BadRequest("Blad edycji: " + messate);
+                }
+            }
+
+            return BadRequest("Niepoprawne dane zapytania");
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(string id)
+        {
+            var employee = context.Users.Find(id);
+            if (employee == null)
+            {
+                return NotFound("Employee not found");
+            }
+
+            var success = userManager.DeleteAsync(employee).Result.Succeeded;
+            if(success)
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest("Bład usuwania");
+            }
         }
     }
 }

@@ -1,6 +1,7 @@
 using CompanyProject.Data;
 using CompanyProject.Data.Models;
 using CompanyProject.Data.Repositories;
+using CompanyProject.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,6 +19,7 @@ builder.Services.AddDefaultIdentity<Employee>(options => options.SignIn.RequireC
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ITaskRepository, TaskRepository>();
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
 var app = builder.Build();
 

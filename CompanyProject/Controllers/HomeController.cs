@@ -32,30 +32,23 @@ namespace CompanyProject.Controllers
         }
 
         [Authorize(Roles = "Administrator")]
-        public IActionResult Employees(string SearchString)
+        public IActionResult Employees(string Name, string Surname)
         {
             var employee = from m in context.Users
                            select m;
-            if (!string.IsNullOrEmpty(SearchString)) 
+
+            if (!string.IsNullOrEmpty(Name)) 
             {
-                employee = employee.Where(x => x.Name!.Contains(SearchString));
+                employee = employee.Where(x => x.Name!.Contains(Name));
+            }
+
+            if (!string.IsNullOrEmpty(Surname))
+            {
+                employee = employee.Where(x => x.Surname!.Contains(Surname));
             }
 
             return View(employee.ToList());
         }
-
-        //[Authorize(Roles = "Administrator")]
-        //public IActionResult Employees(string SearchString)
-        //{
-        //    var employee = from m in context.Users
-        //                   select m;
-        //    if (!string.IsNullOrEmpty(SearchString))
-        //    {
-        //        employee = employee.Where(x => x.Surname!.Contains(SearchString));
-        //    }
-
-        //    return View(employee.ToList());
-        //}
 
         public IActionResult Privacy()
         {

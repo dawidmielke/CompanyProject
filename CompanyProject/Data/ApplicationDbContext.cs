@@ -60,6 +60,19 @@ namespace CompanyProject.Data
             {
                 new IdentityUserRole<string> {UserId="4808c606-89cf-4a92-8ff6-33074a34a335", RoleId="40c6bc97-f08f-41e4-bf60-ccd30ff4ab41"}
             });
+
+            builder.Entity<EmployeeTask>().HasData(new EmployeeTask[]
+            {
+                new EmployeeTask
+                {
+                    Id = 1,
+                    EmployeeId = "4808c606-89cf-4a92-8ff6-33074a34a335",
+                    TaskDescription = "Sprawdzic panel admina",
+                    TaskEnd = new DateTime(2023, 1, 25, 8, 0, 0),
+                    TaskStart = new DateTime(2023, 1, 25, 9, 0, 0),
+                    TaskName = "Panel admina"
+                }
+            });
         }
 
     public DbSet<EmployeeTask> EmployeeTasks { get; set; }
