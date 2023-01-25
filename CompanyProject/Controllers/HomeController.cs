@@ -44,6 +44,19 @@ namespace CompanyProject.Controllers
             return View(employee.ToList());
         }
 
+        //[Authorize(Roles = "Administrator")]
+        //public IActionResult Employees(string SearchString)
+        //{
+        //    var employee = from m in context.Users
+        //                   select m;
+        //    if (!string.IsNullOrEmpty(SearchString))
+        //    {
+        //        employee = employee.Where(x => x.Surname!.Contains(SearchString));
+        //    }
+
+        //    return View(employee.ToList());
+        //}
+
         public IActionResult Privacy()
         {
             return View();
@@ -133,9 +146,6 @@ namespace CompanyProject.Controllers
                 context.SaveChanges();
                 return RedirectToAction("Employees", "Home");   
             }
-
-
-
 
             return View(model);
         }

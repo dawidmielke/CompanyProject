@@ -1,4 +1,5 @@
-﻿using CompanyProject.Data;
+﻿using AspNetCore;
+using CompanyProject.Data;
 using CompanyProject.Data.Models;
 using CompanyProject.Data.Repositories;
 using CompanyProject.Models;
@@ -51,6 +52,43 @@ namespace CompanyProject.Controllers
                 return RedirectToAction("Index", "Leave");
             }
 
+            return View(model);
+        }
+        public IActionResult Edit(string id)
+        {
+            var leave = context.EmployeeLeave.Find(id);
+
+            if (leave == null)
+            {
+                return NotFound("Leave not found");
+            }
+
+            var model = new LeaveEditViewModel
+            {
+                LeaveDescription = leave.LeaveDescription,
+                LeaveStart = leave.LeaveStart,
+                LeaveEnd = leave.LeaveEnd
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(string id, LeaveEditViewModel model)
+        {
+            var leave = context.EmployeeLeave.Find(id);
+            if (leave == null)
+            {
+                return NotFound("leave not found");
+            }
+
+            if (ModelState.IsValid)
+            {
+                leave.LeaveDescription = model.LeaveDescription;
+                leave.LeaveEnd = model.LeaveEnd;
+                leave.LeaveStart = model.LeaveStart;
+                context.SaveChanges();
+                return RedirectToAction("Index", "Leave");
+            }
             return View(model);
         }
 
