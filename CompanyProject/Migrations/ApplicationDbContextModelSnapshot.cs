@@ -112,9 +112,9 @@ namespace CompanyProject.Migrations
                             Name = "Admin",
                             NormalizedEmail = "ADMIN@COMPANY.PL",
                             NormalizedUserName = "ADMIN@COMPANY.PL",
-                            PasswordHash = "ADaMrx0YkVtlaeiPdY7yO+aUrXRXf0jp5KM9sc0OjwK2RAkyqCdOkmLDvgH9uL3mdw==",
+                            PasswordHash = "AI4fH8LeGdHooN2ljK86dGVLcwJ+R76VSKLENsMZ8/9bMpGCCPmJfl1fBzY2xFS4eg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5213f82f-aa71-4a57-bae4-6ccd95bc0e89",
+                            SecurityStamp = "575fe4f9-15a7-484e-8a3b-c8a64a5103ea",
                             Surname = "Admin",
                             TwoFactorEnabled = false,
                             UserName = "admin@company.pl"
@@ -132,9 +132,9 @@ namespace CompanyProject.Migrations
                             Name = "Dawid",
                             NormalizedEmail = "DAWIDMIELKE.TRI@GMAIL.COM",
                             NormalizedUserName = "DAWIDMIELKE.TRI@GMAIL.COM",
-                            PasswordHash = "AMKh7Wr1QC5CicITkDxLHoBc2bfZfn3Zov1I1ZREdLR8TP/SiWxEqQrdW7l75qIbaA==",
+                            PasswordHash = "AGcO0gwYob49V1kukUaoKn/GTK49ypDx/SbHORIC6ENDWFKMaMywOY5u5OtqMmGDXg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c9f92f1a-9e66-4a86-9822-96d0bb2c53f0",
+                            SecurityStamp = "7113d581-e31a-47e2-9708-ab00a397b481",
                             Surname = "Mielke",
                             TwoFactorEnabled = false,
                             UserName = "dawidmielke.tri@gmail.com"
@@ -152,9 +152,9 @@ namespace CompanyProject.Migrations
                             Name = "Dawid",
                             NormalizedEmail = "OLA.NOWAK@GMAIL.COM",
                             NormalizedUserName = "OLA.NOWAK@GMAIL.COM",
-                            PasswordHash = "AHBtqTyynxRJAAQoNYlyMKQ5knfI38AAmEZcz8w/G6qUFUoeMo4eXoJSitaG2zfvgw==",
+                            PasswordHash = "AIemy31/6GPHEdTPhv22yCgPcZkJKzLwWGFHxKBF4IOni2+qgFYvO/LNB4Y0188OQA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4bddd79e-3bea-4385-a815-4604bb31fa96",
+                            SecurityStamp = "a00f446e-88bc-4841-9a98-8d69ddbbbbf8",
                             Surname = "Mielke",
                             TwoFactorEnabled = false,
                             UserName = "ola.nowak@gmail.com"
@@ -254,7 +254,7 @@ namespace CompanyProject.Migrations
                             Id = 1,
                             EmployeeId = "4808c606-89cf-4a92-8ff6-33074a34a335",
                             TaskDescription = "Sprawdzic panel admina",
-                            TaskEnd = new DateTime(2023, 1, 25, 8, 0, 0, 0, DateTimeKind.Unspecified),
+                            TaskEnd = new DateTime(2023, 1, 25, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             TaskName = "Panel admina",
                             TaskStart = new DateTime(2023, 1, 25, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -263,7 +263,7 @@ namespace CompanyProject.Migrations
                             Id = 3,
                             EmployeeId = "ed3f4a9b-6a9d-4514-9197-64c599ca7cde",
                             TaskDescription = "Sprawdzic panel użytkownika",
-                            TaskEnd = new DateTime(2023, 1, 25, 8, 0, 0, 0, DateTimeKind.Unspecified),
+                            TaskEnd = new DateTime(2023, 1, 25, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             TaskName = "Panel użytkownika",
                             TaskStart = new DateTime(2023, 1, 25, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -272,9 +272,9 @@ namespace CompanyProject.Migrations
                             Id = 4,
                             EmployeeId = "0463448f-fe47-41ab-9e99-b0245c4e7e84",
                             TaskDescription = "Dodać migrację oraz update bazy",
-                            TaskEnd = new DateTime(2023, 1, 25, 8, 0, 0, 0, DateTimeKind.Unspecified),
+                            TaskEnd = new DateTime(2023, 1, 25, 14, 0, 0, 0, DateTimeKind.Unspecified),
                             TaskName = "Migracja i baza",
-                            TaskStart = new DateTime(2023, 1, 25, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            TaskStart = new DateTime(2023, 1, 25, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -308,14 +308,14 @@ namespace CompanyProject.Migrations
                         new
                         {
                             Id = "40c6bc97-f08f-41e4-bf60-ccd30ff4ab41",
-                            ConcurrencyStamp = "e66159bd-165f-4035-a6e6-72aef720da42",
+                            ConcurrencyStamp = "4e4287c8-ff25-4b86-ba7d-0e2f27df2f63",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "33244a2a-62a8-4f91-83ac-6435a1348629",
-                            ConcurrencyStamp = "9848d023-e9b5-4b00-b7a6-f07df6e0213f",
+                            ConcurrencyStamp = "7ccff884-1cef-4960-9669-5143a32485fe",
                             Name = "User",
                             NormalizedName = "USER"
                         });

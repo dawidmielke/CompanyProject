@@ -29,6 +29,6 @@ namespace CompanyProject.DTO
         [Required]
         public string Role { get; set; }
 
-        public IFormFile Image { get; set; }
+        public IFormFile? Image { get; set; }
     }
 }

@@ -82,7 +82,7 @@ namespace CompanyProject.Controllers
             var task = context.EmployeeTasks.Find(id);
             if (task == null)
             {
-                return NotFound("leave not found");
+                return NotFound("Task not found");
             }
 
             if (ModelState.IsValid)
@@ -92,7 +92,7 @@ namespace CompanyProject.Controllers
                 task.TaskStart = model.TaskStart;
                 task.TaskEnd = model.TaskEnd;
                 context.SaveChanges();
-                return RedirectToAction("Edit", "Task");
+                return RedirectToAction("Index", "Task");
             }
             return View(model);
         }

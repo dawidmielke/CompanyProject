@@ -19,6 +19,8 @@
 
 
 $(document).ready(function () {
+    taskDatesCorrect()
+
     $("#TaskStart").change(function () {
         taskDatesCorrect()
     })

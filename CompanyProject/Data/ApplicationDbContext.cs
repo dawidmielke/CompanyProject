@@ -99,7 +99,7 @@ namespace CompanyProject.Data
                     Id = 1,
                     EmployeeId = "4808c606-89cf-4a92-8ff6-33074a34a335",
                     TaskDescription = "Sprawdzic panel admina",
-                    TaskEnd = new DateTime(2023, 1, 25, 8, 0, 0),
+                    TaskEnd = new DateTime(2023, 1, 25, 10, 0, 0),
                     TaskStart = new DateTime(2023, 1, 25, 9, 0, 0),
                     TaskName = "Panel admina"
                 },
@@ -108,7 +108,7 @@ namespace CompanyProject.Data
                     Id = 3,
                     EmployeeId = "ed3f4a9b-6a9d-4514-9197-64c599ca7cde",
                     TaskDescription = "Sprawdzic panel użytkownika",
-                    TaskEnd = new DateTime(2023, 1, 25, 8, 0, 0),
+                    TaskEnd = new DateTime(2023, 1, 25, 11, 0, 0),
                     TaskStart = new DateTime(2023, 1, 25, 9, 0, 0),
                     TaskName = "Panel użytkownika"
                 },
@@ -117,8 +117,8 @@ namespace CompanyProject.Data
                     Id = 4,
                     EmployeeId = "0463448f-fe47-41ab-9e99-b0245c4e7e84",
                     TaskDescription = "Dodać migrację oraz update bazy",
-                    TaskEnd = new DateTime(2023, 1, 25, 8, 0, 0),
-                    TaskStart = new DateTime(2023, 1, 25, 9, 0, 0),
+                    TaskEnd = new DateTime(2023, 1, 25, 14, 0, 0),
+                    TaskStart = new DateTime(2023, 1, 25, 12, 0, 0),
                     TaskName = "Migracja i baza"
                 }
             });

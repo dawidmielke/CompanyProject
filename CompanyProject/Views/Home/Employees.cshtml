@@ -37,7 +37,16 @@
                 <div class="col">
                     <div class="card shadow-sm p-4">
                         <div class="banner"></div>
-                        <img class="img-circle mx-auto mb-3" src="data:image/png;base64, @Html.DisplayFor(modelItem => item.Image)" alt="user-image"/>
+                        @if(item.Image != null)
+                        {
+                            <img class="img-circle mx-auto mb-3" src="data:image/png;base64, @Html.DisplayFor(modelItem => item.Image)" alt="user-image" />
+                        }
+                        else
+                        {
+                            //wstawic defaultowy obrazek
+                            <img class="img-circle mx-auto mb-3" alt="user-image" />
+                        }
+                       
                         <h3 class="mb-4 text-center">
                             @Html.DisplayFor(modelItem => item.Surname) @Html.DisplayFor(modelItem => item.Name)
                         </h3>

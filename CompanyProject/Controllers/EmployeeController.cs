@@ -12,7 +12,6 @@ namespace CompanyProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize(Roles = "Administrator")]
     public class EmployeeController : ControllerBase
     {
         private readonly ApplicationDbContext context;
@@ -76,12 +75,12 @@ namespace CompanyProject.Controllers
                 }
                 else
                 {
-                    return BadRequest("Blad dodawania: " + messate);
+                    return BadRequest("Adding error: " + messate);
                 }
                 return Ok();
             }
 
-            return BadRequest("Niepoprawne dane w zapytaniu");
+            return BadRequest("Invalid data in the query");
         }
 
         [HttpPut("{id}")]
@@ -107,11 +106,11 @@ namespace CompanyProject.Controllers
                 }
                 else
                 {
-                    return BadRequest("Blad edycji: " + messate);
+                    return BadRequest("Edit error: " + messate);
                 }
             }
 
-            return BadRequest("Niepoprawne dane zapytania");
+            return BadRequest("Invalid query data");
         }
 
         [HttpDelete("{id}")]
@@ -130,7 +129,7 @@ namespace CompanyProject.Controllers
             }
             else
             {
-                return BadRequest("Bład usuwania");
+                return BadRequest("Deletion error");
             }
         }
     }
