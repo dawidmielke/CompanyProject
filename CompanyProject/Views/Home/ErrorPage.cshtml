@@ -3,11 +3,14 @@
     ViewData["Title"] = "ErrorPage";
 }
 
-<h1 class="text-danger">@ViewData["statusCode"]</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
 
-<div>RequestId :@Model.RequestId</div>
-<div>ShowRequestId :@Model.ShowRequestId</div>
-<div>RequestedUrl :@Model.RequestedUrl</div>
-<div>RedirectUrl :@Model.RedirectUrl</div>
-<div>ExceptionMessage:@Model.ExceptionMessage</div>
+<div class="container">
+    <h1 class="text-danger">@ViewData["statusCode"]</h1>
+    <h2 class="text-danger">An error occurred while processing your request.</h2>
+
+    <div>RequestId :@Model.RequestId</div>
+    <div>ShowRequestId :@Model.ShowRequestId</div>
+    <div>RequestedUrl :@Model.RequestedUrl</div>
+    <div>RedirectUrl :@Model.RedirectUrl</div>
+    <div>ExceptionMessage:@Model.ExceptionMessage</div>
+</div>

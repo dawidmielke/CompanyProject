@@ -67,7 +67,6 @@ namespace CompanyProject.Controllers
                 return NotFound();
             }
             userManager.DeleteAsync(employee).Wait();
-
             return RedirectToAction("Employees");
         }
 
