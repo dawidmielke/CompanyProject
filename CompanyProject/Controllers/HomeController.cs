@@ -4,8 +4,11 @@ using CompanyProject.Data.Repositories;
 using CompanyProject.Models;
 using CompanyProject.Tools;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.WebUtilities;
 using Newtonsoft.Json;
 using System.Diagnostics;
 
@@ -193,10 +196,19 @@ namespace CompanyProject.Controllers
             return View(model);
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var statusCode = HttpContext.Response.StatusCode;
+            ViewData["statusCode"] = statusCode;
+            var feauter = Request.HttpContext.Features.Get<IStatusCodeReExecuteFeature>();//=null
+            var path = feauter?.OriginalPath;
+            return View("ErrorPage", new ErrorViewModel
+            {
+                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier,
+                RequestedUrl = path,
+                RedirectUrl = HttpContext.Request.GetDisplayUrl(),
+                ExceptionMessage = ReasonPhrases.GetReasonPhrase(statusCode)
+            });
         }
     }
 }
