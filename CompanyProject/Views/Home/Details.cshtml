@@ -5,8 +5,16 @@
 <div class="container">
 	<div class="d-flex">
 		<div class="card" style="width: 18rem">
-			<div class="thumb-lg member-thumb mx-auto"><img width="100px" style="border-radius: 50%" src="data:image/png;base64, @Html.DisplayFor(modelItem => Model.Image)" /></div>
-
+			<div class="thumb-lg member-thumb mx-auto">
+				@if(Model.Image != null)
+				{
+					<img width="100px" style="border-radius: 50%" src="data:image/png;base64, @Html.DisplayFor(modelItem => Model.Image)" />
+				}
+				else 
+				{
+					<img width="100px" style="border-radius: 50%" src="/img/employee_default.png"/>
+				}
+				</div>
 			<div class="card-body">
 				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 				@Model.Name
