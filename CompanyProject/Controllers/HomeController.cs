@@ -168,7 +168,6 @@ namespace CompanyProject.Controllers
                 .ToList();
 
             ViewBag.TasksSummary = JsonConvert.SerializeObject(tasksSummary);
-
             return View(employee);
         }
 
