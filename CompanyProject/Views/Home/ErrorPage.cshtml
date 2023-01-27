@@ -3,14 +3,23 @@
     ViewData["Title"] = "ErrorPage";
 }
 
+<link rel="stylesheet" href="~/css/style.css" asp-append-version="true" /> 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&family=Montserrat:wght@900&display=swap" rel="stylesheet">
 
 <div class="container">
-    <h1 class="text-danger">@ViewData["statusCode"]</h1>
-    <h2 class="text-danger">An error occurred while processing your request.</h2>
-
-    <div>RequestId :@Model.RequestId</div>
-    <div>ShowRequestId :@Model.ShowRequestId</div>
-    <div>RequestedUrl :@Model.RequestedUrl</div>
-    <div>RedirectUrl :@Model.RedirectUrl</div>
-    <div>ExceptionMessage:@Model.ExceptionMessage</div>
+    <div id="notfound">
+        <div class="notfound-error">
+            <div class="notfound-404">
+                <h3 class="first-heading">Oops! Page not found</h3>
+                <h1 class="second-heading">
+                    <span class="digit">4</span>
+                    <span class="digit">0</span>
+                    <span class="digit">4</span>
+                </h1>
+            </div>
+            <h2 class="third-heading">we are sorry, but the page you requested was not found</h2>
+        </div>
+    </div>
 </div>

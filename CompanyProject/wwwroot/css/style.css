@@ -96,3 +96,69 @@ link:hover {
 .limiter {
     margin: 0 auto;
 }
+
+#notfound {
+    position: relative;
+    height: 100vh;
+}
+
+#not-found .notfound-error {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.notfound-error {
+    max-width: 520px;
+    width: 100%;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.notfound .notfound-404 {
+    position: relative;
+    height: 240px;
+}
+
+.first-heading {
+    font-family: 'Cabin', sans-serif;
+    position: relative;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #262626;
+    margin: 0;
+    letter-spacing: 3px;
+    padding-left: 6px;
+}
+
+.second-heading {
+    font-family: 'Montserrat', sans-serif;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 252px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #262626;
+    margin: 0;
+    letter-spacing: -40px;
+    margin-left: -20px;
+}
+
+.digit {
+    text-shadow: -8px 0 0 #fff;
+}
+
+.third-heading {
+    font-family: 'Cabin', sans-serif;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 400;
+    color: #000;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+    
