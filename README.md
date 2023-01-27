@@ -28,7 +28,7 @@ The application is in building status. New functionality is being added and curr
 
 ## Project screenshots
 ![ems1](https://user-images.githubusercontent.com/89485950/215151776-383c1b10-6658-4435-acbd-7ca4320e72f3.png)
-
+![ems2](https://user-images.githubusercontent.com/89485950/215151892-406c504d-c4c3-4fbf-8b18-64cb438caf7b.png)
 ## Technologies
 - C# 
 - HTML5
