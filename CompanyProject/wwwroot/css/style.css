@@ -97,12 +97,12 @@ link:hover {
     margin: 0 auto;
 }
 
-#notfound {
+.notfound {
     position: relative;
     height: 100vh;
 }
 
-#not-found .notfound-error {
+.notfound .notfound-error {
     position: absolute;
     left: 50%;
     top: 50%;
