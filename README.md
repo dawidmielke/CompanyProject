@@ -8,7 +8,7 @@ ASP.NET MVC project for programming laboratories.
 * [Setup](#setup)
 
 ## General info
-This project was based on the ASP.NET course I completed during my studies. The project presents an employee management system. In the application, any user can create an account in the registration form and log in as an new employee. After logging in, user has access to: 
+This project was based on the ASP.NET course I completed during my studies. The project presents an employee management system. In the application, any user can create an account in the registration form and log in as a new employee. After logging in, user has access to: 
 - the tasks page where he can record time and assign task names. 
 - the annual leave page where he can enter his data like: time and name.
 - he can also display the list of tasks and annual leaves.
