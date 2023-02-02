@@ -23,7 +23,7 @@ Employee with administrator rights  after logging  in  has  access  to:
 Every  employee  can  check  their  working  hours  data  in  the  details  tab.
 
 ## Project status
-The application is in building status. New functionality is being added and current functionality is being refactored.
+The application is finished.
 
 
 ## Project screenshots
