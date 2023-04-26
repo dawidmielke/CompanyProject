@@ -28,9 +28,10 @@ namespace CompanyProject.Data.Repositories
             }
         }
 
-        public EmployeeTask Get(int id)
+        public async  Task<EmployeeTask> Get(int id)
         {
-            return context.EmployeeTasks.FirstOrDefault(x => x.Id == id);
+            var employeetask = await context.EmployeeTasks.FindAsync(id);
+            return employeetask;
         }
 
         public async Task<List<EmployeeTask>> GetAll()
