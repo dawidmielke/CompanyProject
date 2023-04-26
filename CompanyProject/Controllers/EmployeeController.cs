@@ -68,16 +68,15 @@ namespace CompanyProject.Controllers
                     Birth = model.Birth,
                 };
 
-                (bool success, string messate) = employeeService.AddEmployee(user, model.Password, model.Image, model.Role);
+                (bool success, string message) = employeeService.AddEmployee(user, model.Password, model.Image, model.Role);
                 if (success)
                 {
                     return Ok();
                 }
                 else
                 {
-                    return BadRequest("Adding error: " + messate);
+                    return BadRequest("Adding error: " + message);
                 }
-                return Ok();
             }
 
             return BadRequest("Invalid data in the query");
@@ -99,14 +98,14 @@ namespace CompanyProject.Controllers
                 employee.Birth = model.Birth;
                 employee.Email = model.Email;
 
-                (bool success, string messate) = employeeService.EditEmployee(id, employee, model.Password, model.Image, model.Role);
+                (bool success, string message) = employeeService.EditEmployee(id, employee, model.Password, model.Image, model.Role);
                 if(success)
                 {
                     return Ok();
                 }
                 else
                 {
-                    return BadRequest("Edit error: " + messate);
+                    return BadRequest("Edit error: " + message);
                 }
             }
 

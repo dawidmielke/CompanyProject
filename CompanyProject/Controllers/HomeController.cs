@@ -130,7 +130,6 @@ namespace CompanyProject.Controllers
                     {
                         userManager.RemoveFromRoleAsync(employee, roles[0]).Wait();
                         userManager.AddToRoleAsync(employee, model.Role).Wait();
-
                     }
                 }
                 else
@@ -190,7 +189,6 @@ namespace CompanyProject.Controllers
                 userManager.AddToRoleAsync(user, model.Role).Wait();
                 return RedirectToAction("Employees", "Home");
             }
-
             return View(model);
         }
 

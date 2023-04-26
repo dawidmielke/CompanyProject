@@ -6,7 +6,6 @@ namespace CompanyProject.Data.Repositories
     public class TaskMockRepository
     {
         private readonly List<EmployeeTask> tasks;
-
         public TaskMockRepository()
         {
             tasks = new List<EmployeeTask>();

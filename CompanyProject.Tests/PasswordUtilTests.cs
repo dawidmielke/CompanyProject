@@ -7,10 +7,15 @@ namespace CompanyProject.Tests
         [Fact]
         public void CreatePasswordTest()
         {
+            // given
             string password = "test1234";
             int exptectedHashLength = 68;
+
+            //when
             string hash = PasswordUtil.HashPassword(password);
-            Assert.NotNull(hash);
+
+            // then
+                        Assert.NotNull(hash);
             Assert.EndsWith("==", hash);
             Assert.Equal(exptectedHashLength, hash.Length);
         }
