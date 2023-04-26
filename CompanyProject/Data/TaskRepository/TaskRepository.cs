@@ -1,4 +1,5 @@
 ﻿using CompanyProject.Data.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CompanyProject.Data.Repositories
 {
@@ -32,14 +33,16 @@ namespace CompanyProject.Data.Repositories
             return context.EmployeeTasks.FirstOrDefault(x => x.Id == id);
         }
 
-        public List<EmployeeTask> GetAll()
+        public async Task<List<EmployeeTask>> GetAll()
         {
-            return context.EmployeeTasks.ToList();
+            var employeeTasks =  await context.EmployeeTasks.ToListAsync();
+            return employeeTasks;
         }
 
-        public List<EmployeeTask> GetTasksByEmployeeId(string id)
+        public async  Task<List<EmployeeTask>> GetTasksByEmployeeId(string id)
         {
-            return context.EmployeeTasks.Where(x => x.EmployeeId == id).ToList();
+            var taskByEmployeeID = await context.EmployeeTasks.Where(x => x.EmployeeId == id).ToListAsync();
+            return taskByEmployeeID;
         }
 
         public void Update(EmployeeTask employeeTask)

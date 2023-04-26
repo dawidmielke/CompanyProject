@@ -4,11 +4,11 @@ namespace CompanyProject.Data.Repositories
 {
     public interface ITaskRepository
     {
-        List<EmployeeTask> GetAll();
-        EmployeeTask Get(int id);
+        Task<List<EmployeeTask>> GetAll();
+        Task<EmployeeTask> Get(int id);
         void Create(EmployeeTask employeeTask);
         void Update(EmployeeTask employeeTask);
         void Delete(int id);
-        List<EmployeeTask> GetTasksByEmployeeId(string id);
+        Task<List<EmployeeTask>> GetTasksByEmployeeId(string id);
     }
 }
