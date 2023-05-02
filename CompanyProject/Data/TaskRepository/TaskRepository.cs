@@ -1,5 +1,4 @@
 ﻿using CompanyProject.Data.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace CompanyProject.Data.Repositories
 {
@@ -28,22 +27,20 @@ namespace CompanyProject.Data.Repositories
             }
         }
 
-        public async  Task<EmployeeTask> Get(int id)
+        public async Task<EmployeeTask> Get(int id)
         {
-            var employeetask = await context.EmployeeTasks.FindAsync(id);
-            return employeetask;
+            var employeeTask = await context.EmployeeTasks.FindAsync(id);
+            return employeeTask;
         }
 
-        public async Task<List<EmployeeTask>> GetAll()
+        public List<EmployeeTask> GetAll()
         {
-            var employeeTasks =  await context.EmployeeTasks.ToListAsync();
-            return employeeTasks;
+            return context.EmployeeTasks.ToList();
         }
 
-        public async  Task<List<EmployeeTask>> GetTasksByEmployeeId(string id)
+        public List<EmployeeTask> GetTasksByEmployeeId(string id)
         {
-            var taskByEmployeeID = await context.EmployeeTasks.Where(x => x.EmployeeId == id).ToListAsync();
-            return taskByEmployeeID;
+            return context.EmployeeTasks.Where(x => x.EmployeeId == id).ToList();
         }
 
         public void Update(EmployeeTask employeeTask)

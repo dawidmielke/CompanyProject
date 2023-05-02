@@ -15,7 +15,7 @@ namespace CompanyProject.Tests
             string hash = PasswordUtil.HashPassword(password);
 
             // then
-                        Assert.NotNull(hash);
+            Assert.NotNull(hash);
             Assert.EndsWith("==", hash);
             Assert.Equal(exptectedHashLength, hash.Length);
         }

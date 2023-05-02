@@ -27,14 +27,12 @@ namespace CompanyProject.Data
                 new IdentityRole{ 
                     Id = "40c6bc97-f08f-41e4-bf60-ccd30ff4ab41", 
                     Name="Administrator", 
-                    NormalizedName="Administrator".ToUpper(),
-                    //ConcurrencyStamp = "93471d69-4b83-43e9-bce0-f5c4f1c1e649"
+                    NormalizedName="Administrator".ToUpper()
                 },
                 new IdentityRole{
                     Id = "33244a2a-62a8-4f91-83ac-6435a1348629",
                     Name="User",
-                    NormalizedName="User".ToUpper(),
-                    //ConcurrencyStamp = "1d51ee3b-d24f-4aae-b883-aa84051a1f06"
+                    NormalizedName="User".ToUpper()
                 }
             });
 
