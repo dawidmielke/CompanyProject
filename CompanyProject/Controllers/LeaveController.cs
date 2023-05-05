@@ -4,6 +4,7 @@ using CompanyProject.Data.Repositories;
 using CompanyProject.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
 namespace CompanyProject.Controllers
@@ -35,7 +36,7 @@ namespace CompanyProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddLeave(LeaveViewModel model)
+        public async Task<IActionResult> AddLeave(LeaveViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -54,9 +55,9 @@ namespace CompanyProject.Controllers
             return View(model);
         }
 
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int id)
         {
-            var leave = context.EmployeeLeave.Find(id);
+            var leave = await context.EmployeeLeave.FindAsync(id);
 
             if (leave == null)
             {
@@ -73,9 +74,9 @@ namespace CompanyProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(int id, LeaveEditViewModel model)
+        public async Task<IActionResult> Edit(int id, LeaveEditViewModel model)
         {
-            var leave = context.EmployeeLeave.Find(id);
+            var leave = await context.EmployeeLeave.FindAsync(id);
             if (leave == null)
             {
                 return NotFound("leave not found");
@@ -92,9 +93,9 @@ namespace CompanyProject.Controllers
             return View(model);
         }
 
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            var leave = context.EmployeeLeave.FirstOrDefault(x => x.Id == id);
+            var leave = await context.EmployeeLeave.FirstOrDefaultAsync(x => x.Id == id);
             if (leave == null)
             {
                 return NotFound();

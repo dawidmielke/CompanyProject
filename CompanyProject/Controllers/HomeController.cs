@@ -137,7 +137,7 @@ namespace CompanyProject.Controllers
                     userManager.AddToRoleAsync(employee, model.Role).Wait();
                 }
 
-                context.SaveChanges();
+                await context.SaveChangesAsync();
                 return RedirectToAction("Employees", "Home");   
             }
 
@@ -151,9 +151,9 @@ namespace CompanyProject.Controllers
         }
 
         [Authorize(Roles = "Administrator")]
-        public IActionResult Details(string id)
+        public async Task<IActionResult> Details(string id)
         {
-            var employee = context.Users.Find(id);
+            var employee = await context.Users.FindAsync(id);
             if (employee == null)
             {
                 return NotFound();
