@@ -59,9 +59,9 @@ namespace CompanyProject.Controllers
         }
 
         [Authorize(Roles = "Administrator")]
-        public IActionResult DeleteUser(string id)
+        public async Task<IActionResult> DeleteUser(string id)
         {
-            var employee = context.Users.Find(id);
+            var employee = await context.Users.FindAsync(id);
             if(employee == null)
             {
                 return NotFound();
@@ -71,9 +71,9 @@ namespace CompanyProject.Controllers
         }
 
         [Authorize(Roles = "Administrator")]
-        public IActionResult EditEmployee(string id)
+        public async Task<IActionResult> EditEmployee(string id)
         {
-            var employee = context.Users.Find(id);
+            var employee = await context.Users.FindAsync(id);
             if (employee == null)
             {
                 return NotFound("Employee not found");
@@ -96,9 +96,9 @@ namespace CompanyProject.Controllers
 
         [Authorize(Roles = "Administrator")]
         [HttpPost]
-        public IActionResult EditEmployee(string id, EmployeeEditViewModel model)
+        public async Task<IActionResult> EditEmployee(string id, EmployeeEditViewModel model)
         {
-            var employee = context.Users.Find(id);
+            var employee = await context.Users.FindAsync(id);
             if (employee == null)
             {
                 return NotFound("Employee not found");
