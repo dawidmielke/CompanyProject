@@ -19,7 +19,7 @@ namespace CompanyProject.Data.Repositories
 
         public void Delete(int id)
         {
-            var task = Get(id);
+            var task = GetAsync(id);
             if(task != null)
             {
                 context.Remove(task);
@@ -27,7 +27,7 @@ namespace CompanyProject.Data.Repositories
             }
         }
 
-        public async Task<EmployeeTask> Get(int id)
+        public async Task<EmployeeTask> GetAsync(int id)
         {
             var employeeTask = await context.EmployeeTasks.FindAsync(id);
             return employeeTask;

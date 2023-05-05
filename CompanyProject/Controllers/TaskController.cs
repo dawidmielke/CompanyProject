@@ -58,9 +58,9 @@ namespace CompanyProject.Controllers
             return View(model);
         }
 
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int id)
         {
-            var task = context.EmployeeTasks.Find(id);
+            var task = await context.EmployeeTasks.FindAsync(id);
             if(task == null)
             {
                 return NotFound("Task not found");
@@ -77,9 +77,9 @@ namespace CompanyProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(int id, TaskEditViewModel model)
+        public async Task<IActionResult> Edit(int id, TaskEditViewModel model)
         {
-            var task = context.EmployeeTasks.Find(id);
+            var task = await context.EmployeeTasks.FindAsync(id);
             if (task == null)
             {
                 return NotFound("Task not found");
@@ -97,9 +97,9 @@ namespace CompanyProject.Controllers
             return View(model);
         }
 
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            var task = taskRepository.Get(id);
+            var task = await taskRepository.GetAsync(id);
             if (task == null)
             {
                 return NotFound();
